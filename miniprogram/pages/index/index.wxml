@@ -1,3 +1,10 @@
-<text>创辉达图书借阅</text>
-<text>书中自有黄金屋</text>
-<text>书中自有颜如玉</text>
+<view class="container">
+<image class="bg-img" src="../../images/1.png">
+</image>
+<view class="logo">
+<text class="logo-title">创辉达图书借阅</text>
+<text class="logo-content1">书中自有黄金屋</text>
+<text class="logo-content2">书中自有颜如玉</text>
+
+</view>
+</view>
