@@ -1,0 +1,1 @@
+"D:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-3gdvehv02f4a564e --n quickstartFunctions --r --project "E:\applet of wechat\store1.0" --report_first --report
