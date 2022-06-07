@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/zsf/zsf",
     "pages/login/login",
-    "pages/main/main"
+    "pages/main/main",
+    "pages/books/books",
+    "pages/user/user"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -12,6 +14,33 @@
     "navigationBarTitleText": "store1.0",
     "navigationBarTextStyle": "black"
   },
+
+  "tabBar": {
+    "list": [{
+        "pagePath": "pages/main/main",
+        "text": "信息",
+        "iconPath": "images/tabBar/a-off.png",
+        "selectedIconPath": "images/tabBar/a-on.png"
+      },
+      {
+        "pagePath": "pages/books/books",
+        "text": "书库",
+        "iconPath": "images/tabBar/b-off.png",
+        "selectedIconPath": "images/tabBar/b-on.png"
+      },
+
+      {
+        "pagePath": "pages/user/user",
+        "text": "用户",
+        "iconPath": "images/tabBar/c-off.png",
+        "selectedIconPath": "images/tabBar/c-on.png"
+      }
+    ],
+    "borderStyle": "white",
+    "selectedColor": "#000000",
+    "color": "#999"
+  },
+
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }

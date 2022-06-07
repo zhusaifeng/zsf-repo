@@ -10,6 +10,12 @@ Page({
 
 getMyInfo: function(e){
  console.log(e.detail.userInfo)
+//  wx.navigateTo({
+//   url: '../main/main',
+// });
+wx.switchTab({
+  url: '/pages/main/main',
+});
 },
 
   /**
@@ -18,12 +24,6 @@ getMyInfo: function(e){
   onLoad: function (options) {
 
   },
-
-  // gotomain: function(options){
-  //   wx.navigateTo({
-  //     url: '../login/login',
-  //   });
-  // },
 
 
 
