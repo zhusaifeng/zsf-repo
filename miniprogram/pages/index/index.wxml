@@ -1,9 +1,13 @@
 <view class="container">
-<image class="bg-img" src="../../images/1.png">
-</image>
-<view class="logo">
-<text class="logo-title">创辉达图书借阅</text>
-<text class="logo-content1">书中自有黄金屋</text>
-<text class="logo-content2">书中自有颜如玉</text>
-</view>
+    <image class="bg-img" src="../../images/3.jpg"></image>
+    <view class="logo">
+        <text class="logo-title">创辉达图书借阅</text>
+        <text class="logo-content1">书中自有黄金屋</text>
+        <text class="logo-content2">书中自有颜如玉</text>
+        <!-- plain设置按钮镂空，即背景色透明 -->
+        <button class="button" type="default" style="width:40%;color:white;border:2px solid white;" 
+        plain="{{true}}" hover-class="button-hover" open-type="getUserInfo" bindgetuserinfo="getMyInfo">
+        微信登录
+        </button>
+    </view>
 </view>

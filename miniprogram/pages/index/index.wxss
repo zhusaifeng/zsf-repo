@@ -24,7 +24,7 @@
   display: block; 
   font-size:30px;
   color: WHITE;
-  top: 20%;
+  top: 10%;
   left: 20%;
   font-weight: 25%;
 }
@@ -32,14 +32,14 @@
 .logo .logo-content1{
   font-size: 20px;
   writing-mode: vertical-lr;
-  top: 40%;
+  top: 35%;
   left: 10%;
 }
 
 .logo .logo-content2{
   font-size: 20px;
   writing-mode: vertical-lr;
-  top: 45%;
+  top: 40%;
   left: 20%;
 }
 
@@ -49,3 +49,12 @@
   height: 100%;
  
 }
+
+.button{
+  position: absolute;
+  top: 80%;
+  left: 30%;
+  size: 8px;
+  border-radius: 50%;
+}
+

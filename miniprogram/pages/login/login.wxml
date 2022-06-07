@@ -1,2 +1,17 @@
 <!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view class="container">
+    <image class="bg-img" src="../../images/3.jpg"></image>
+    <view class="logo">
+        <text class="logo-title">创辉达书城登录</text>
+        <!-- plain设置按钮镂空，即背景色透明 -->
+        <button bindtap="gotomain" class="button" type="default" style="width:40%;color:white;border:2px solid white;" 
+        plain="{{true}}" hover-class="button-hover">
+        登录
+        </button>
+         <button bindtap="gotomain" class="button" type="default" style="width:40%;color:white;border:2px solid white;" 
+        plain="{{true}}" hover-class="button-hover">
+        微信登录
+        </button>
+    </view>
+</view>
+
