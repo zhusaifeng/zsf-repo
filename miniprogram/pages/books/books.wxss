@@ -1,1 +1,51 @@
 /* pages/books/books.wxss */
+.main-container {
+    display: flex;
+    flex-direction: column;
+}
+.search-container {
+    background: rgb(185, 227, 241);
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+}
+
+.books-search-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-top: 13px;
+    border-radius: 5px;
+    height: 60rpx;
+    background-color: #fff;
+}
+
+.scan-btn {
+    border: 1px solid #fff;
+    height: 60rpx;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 32rpx;
+    line-height: 60rpx;
+    width: 150rpx;
+    text-align: center;
+    margin-top: 11px;
+    margin-left: 15px;
+}
+
+.name {
+    margin-top: 50%;
+    margin-left: 15px;
+    float: left;
+}
+.classify {
+    padding-left: 50rpx;
+    font-size: 36rpx;
+    height: 40px;
+    color: #000;
+    line-height: 40px;
+    border-bottom: 1px solid #eee;
+    flex-direction: row;
+}

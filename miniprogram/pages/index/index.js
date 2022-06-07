@@ -14,7 +14,7 @@ getMyInfo: function(e){
 //   url: '../main/main',
 // });
 wx.switchTab({
-  url: '/pages/main/main',
+  url: '/pages/books/books',
 });
 },
 

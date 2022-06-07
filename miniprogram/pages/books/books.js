@@ -5,14 +5,26 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        classifyOnes: {},
     },
+
+    
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this;
+        wx.request({
+            url: getApp().globalData.url + 'api-book-classifyone-all',
+            data: {},
+            method: 'GET',
+            success: function (res) {
+            that.setData({
+                classifyOnes: res.data,
+            });
+            },
+        });
     },
 
     /**
