@@ -1,2 +1,20 @@
 <!--pages/user/user.wxml-->
-<text>个人中心</text>
+
+<view class="main-container">
+    
+    <view class="user-container">
+        <view class="logo">
+        <open-data type="userAvatarUrl" open-gid=""></open-data>
+        </view>
+        <view class="username">
+        <open-data class="" type="userNickName" open-gid=""></open-data>
+        </view>
+        <view class="desc">当前信用分数: 80分</view>
+    </view>
+</view>
+
+
+<!-- <view class="">
+    <open-data class="" type="userAvatarUrl" open-gid=""></open-data>
+    <open-data class="" type="userNickName" open-gid=""></open-data>
+</view> -->
