@@ -29,10 +29,12 @@ Page({
     },
 
     booksListBtn:function(e){
+        var name=e.target.dataset.name;
         wx.navigateTo({
-            url: '/pages/books-search/books-search',
+            url: '/pages/books-search/books-search?item=' + name,
             success: (result)=>{
-                console.log("跳转成功")
+                console.log("跳转成功");
+                console.log(name);
             },
             fail: ()=>{console.log("跳转失败")},
             complete: ()=>{}

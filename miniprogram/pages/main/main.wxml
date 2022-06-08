@@ -1,2 +1,38 @@
 <!--pages/main/main.wxml-->
-<text>信息</text>
+<text style="color:red;text-align:center;">
+    热门书籍：
+</text>
+    
+<view wx:for="{{hotBookList}}">
+    <view class="line" ></view>
+    <view >书名:{{item.bookName}}</view>
+    <view> 作者：{{item.bookAuthor}}</view>
+    <view> 出版社：{{bookPress}}</view>
+    <view> 地址：{{item.bookAddress}}</view>
+    <view> 库存：{{item.bookResidue}}</view>
+</view>
+
+
+<text style="color:red;text-align:center;">
+    推荐书籍：
+</text>
+<view wx:for="{{recommendBookList}}">
+    <view class="line" ></view>
+    <view >书名:{{item.bookName}}</view>
+    <view> 作者：{{item.bookAuthor}}</view>
+    <view> 出版社：{{bookPress}}</view>
+    <view> 地址：{{item.bookAddress}}</view>
+    <view> 库存：{{item.bookResidue}}</view>
+</view>
+
+<text style="color:red;text-align:center;">
+    新书：
+</text>
+<view wx:for="{{newBookList}}">
+    <view class="line" ></view>
+    <view >书名:{{item.bookName}}</view>
+    <view> 作者：{{item.bookAuthor}}</view>
+    <view> 出版社：{{bookPress}}</view>
+    <view> 地址：{{item.bookAddress}}</view>
+    <view> 库存：{{item.bookResidue}}</view>
+</view>

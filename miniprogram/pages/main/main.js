@@ -5,13 +5,45 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        hotBookList: {},
+        recommendBookList:{},
+        newBookList: {},
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        var that=this;
+        //获取热门图书
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getHotBook',
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({ hotBookList: res.data });
+        console.log(res.data);
+        }
+    });
+
+    //获取推荐图书
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getRecommendBook/' + 1,
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({ recommendBookList: res.data });
+        }
+    })
+    //获取新书
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getNewBook',
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({ newBookList: res.data });
+        }
+    })
         
     },
 

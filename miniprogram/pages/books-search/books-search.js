@@ -5,16 +5,26 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        books:{}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    onLoad: function(options) {
+        var search = options.search;
+        var that = this;
+        wx.request({
+        url: getApp().globalData.url + 'api-book-book-bynamelike/' + search,
+        data: {},
+        method: 'GET',
+        success: function(res){
+            that.setData({books: res.data});
+            console.log(res.data);
+            console.log(search);
+        }
+        })
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
