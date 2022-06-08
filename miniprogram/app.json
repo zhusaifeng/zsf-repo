@@ -5,7 +5,8 @@
     "pages/login/login",
     "pages/main/main",
     "pages/books/books",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/books-search/books-search"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

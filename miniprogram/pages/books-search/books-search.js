@@ -1,42 +1,17 @@
-// pages/books/books.js
+// pages/books-search/books-search.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        classifyOnes: {},
-    },
 
-    
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var that = this;
-        wx.request({
-            url: getApp().globalData.url + 'api-book-classifyone-all',
-            data: {},
-            method: 'GET',
-            success: function (res) {
-            that.setData({
-                classifyOnes: res.data,
-            });
-            },
-            fail: ()=>{console.log("调用接口失败")},
-        });
-    },
-
-    booksListBtn:function(e){
-        wx.navigateTo({
-            url: '/pages/books-search/books-search',
-            success: (result)=>{
-                console.log("跳转成功")
-            },
-            fail: ()=>{console.log("跳转失败")},
-            complete: ()=>{}
-        });
 
     },
 

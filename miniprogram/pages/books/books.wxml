@@ -15,7 +15,7 @@
     </view>
     <view wx:for="{{classifyOnes}}">
         <view class="classify" data-name="{{item}}" bindtap="booksListBtn">
-            <view data-name="{{item}}" class="point background-color{{index%10}}"></view>
+            <view data-name="{{item}}" class="point"></view>
             <text data-name="{{item}}" class="name">{{item}}</text>
             <text data-name="{{item}}" class="arrow">></text>
         </view>
