@@ -24,6 +24,7 @@ Page({
                 classifyOnes: res.data,
             });
             },
+            fail: ()=>{console.log("调用接口失败")},
         });
     },
 

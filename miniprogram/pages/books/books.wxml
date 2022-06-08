@@ -8,16 +8,10 @@
         </view>
         <view class="scan-btn" bindtap="scanBtnOnClick">扫码借书</view>
     </view>
-    <!-- <view wx:for="{{classifyOnes}}" wx:for-index="idx" wx:for-item="classifyOne">
-        <view class="classify" data-name="{{classifyOne}}" bindtap="booksListBtn">
-            <view data-name="{{classifyOne}}" class="point background-color{{idx%10}}"></view>
-            <text data-name="{{classifyOne}}" class="name">{{classifyOne}}</text>
-            <text data-name="{{classifyOne}}" class="arrow">></text>
-        </view>
-    </view> -->
-    <view>
+
+    <view wx:for="{{classifyOnes}}">
         <text class="name">
-        朱赛峰:{{classifyOne}}
+        朱赛峰:{{index}}:{{item}}
         </text>
     </view>
 </view>

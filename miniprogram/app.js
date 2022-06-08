@@ -13,7 +13,13 @@ App({
         traceUser: true,
       });
     }
-
-    this.globalData = {};
+  },
+  globalData: {
+    userInfo: null,
+    url: "https://fang.transfigure.cn:1852/book/",
+    // url: "http://localhost:8080/bookMateServer_war_exploded/",
+    user: "",
+    admin: "",
+    openid: ''
   }
 });
