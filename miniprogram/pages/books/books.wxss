@@ -36,10 +36,14 @@
 }
 
 .name {
-    margin-top: 50%;
     margin-left: 15px;
     float: left;
 }
+.number {
+    margin-left: 10px;
+    float: left;
+}
+
 .classify {
     padding-left: 50rpx;
     font-size: 36rpx;
@@ -48,4 +52,17 @@
     line-height: 40px;
     border-bottom: 1px solid #eee;
     flex-direction: row;
+}
+.arrow {
+    margin-right: 25px;
+    float: right;
+    color: #aaa;
+}
+.point {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin-top: 15px;
+    float: left;    
+    background-color:rgb(185, 227, 241);
 }
