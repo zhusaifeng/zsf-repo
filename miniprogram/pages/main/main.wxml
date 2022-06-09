@@ -1,38 +1,54 @@
 <!--pages/main/main.wxml-->
-<text style="color:red;text-align:center;">
-    热门书籍：
-</text>
-    
+
+    <!--热门书籍-->
+    <view class="new-card">
+        <view class="tag">新书</view>
+        <view style="text-align:center">—— 新书推荐 ——</view>
+        <view class="bookImg">
+        <image src="http:{{newBookList[0].bookImageBig}}" bindtap="bookDetailBtn" id="{{hotBookList[0].bookId}}"/>
+        <image src="http:{{newBookList[1].bookImageBig}}" bindtap="bookDetailBtn" id="{{hotBookList[1].bookId}}"/>
+        <image src="http:{{newBookList[2].bookImageBig}}" bindtap="bookDetailBtn" id="{{hotBookList[2].bookId}}"/>
+        </view>
+    </view>
+
+
+
+<text style="text-align:center;">
+    ————热门书籍—————
+</text>  
+
+
 <view wx:for="{{hotBookList}}">
-    <view class="line" ></view>
-    <view >书名:{{item.bookName}}</view>
-    <view> 作者：{{item.bookAuthor}}</view>
-    <view> 出版社：{{bookPress}}</view>
-    <view> 地址：{{item.bookAddress}}</view>
-    <view> 库存：{{item.bookResidue}}</view>
+    <view class="recommend-card">
+        <image src="{{item.bookImageBig}}"></image>
+        <view class="recommend-card-right"> 
+            <view class="title">书名:{{item.bookName}}</view>
+            <view class="author">作者：{{item.bookAuthor}}</view>
+            <view class="press">出版社：{{bookPress}}</view>
+            <view class="press">地址：{{item.bookAddress}}</view>
+            <view class="press">库存：{{item.bookResidue}}</view>
+        </view>
+    </view>
 </view>
 
 
-<text style="color:red;text-align:center;">
-    推荐书籍：
+<text style="text-align:center">
+    ————推荐书籍————
 </text>
 <view wx:for="{{recommendBookList}}">
-    <view class="line" ></view>
-    <view >书名:{{item.bookName}}</view>
-    <view> 作者：{{item.bookAuthor}}</view>
-    <view> 出版社：{{bookPress}}</view>
-    <view> 地址：{{item.bookAddress}}</view>
-    <view> 库存：{{item.bookResidue}}</view>
+    <view class="recommend-card">
+        <image src="{{item.bookImageBig}}"></image>
+        <view class="recommend-card-right"> 
+            <view class="title">书名:{{item.bookName}}</view>
+            <view class="author">作者：{{item.bookAuthor}}</view>
+            <view class="press">出版社：{{bookPress}}</view>
+            <view class="press">地址：{{item.bookAddress}}</view>
+            <view class="press">库存：{{item.bookResidue}}</view>
+        </view>
+    </view>
 </view>
 
-<text style="color:red;text-align:center;">
-    新书：
-</text>
-<view wx:for="{{newBookList}}">
-    <view class="line" ></view>
-    <view >书名:{{item.bookName}}</view>
-    <view> 作者：{{item.bookAuthor}}</view>
-    <view> 出版社：{{bookPress}}</view>
-    <view> 地址：{{item.bookAddress}}</view>
-    <view> 库存：{{item.bookResidue}}</view>
-</view>
+
+
+
+
