@@ -1,0 +1,28 @@
+<!--pages/book-detail/book-detail.wxml-->
+<view class="desc-container">
+    <image src="http:{{book.bookImageBig}}" />
+    <view class="right">
+        <view>书名：{{book.bookName}}</view>
+        <view>作者：{{book.bookAuthor}}</view>
+        <view>出版社：{{book.bookPress}}</view>
+        <view>地址：{{book.bookAddress}}</view>
+    </view>
+</view>
+    <!--内容介绍-->
+    <view class="content-container">
+        <text class="title">内容简介</text>
+        <text class="content" wx:if="{{book.bookDesc != ''}}">
+            {{book.bookDesc}}
+        </text>
+        <text class="content" wx:if="{{book.bookDesc == ''}}">
+            暂无简介
+        </text>
+    </view>
+
+
+    <view class="operate-container">
+        <view class="btn-group">
+            <view class="btn" bindtap="borrowBtn">借阅本书</view>
+            <view class="btn" bindtap="scanBtnOnClick">扫码确认</view>
+        </view>
+    </view>

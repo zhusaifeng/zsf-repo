@@ -1,8 +1,4 @@
 <!--pages/books-search/books-search.wxml-->
-<!-- <view wx:for="{{books}}">
-    <text>朱赛峰:{{item.bookName}}</text> 
-</view> -->
-
 <view class="main-container">
 
     <view wx:for="{{books}}" wx:for-item="book">

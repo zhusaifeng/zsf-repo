@@ -13,11 +13,11 @@
         <text class="name"></text>
         <text class="arrow"></text>
     </view>
-    <view wx:for="{{classifyOnes}}">
-        <view class="classify" data-name="{{item}}" bindtap="booksListBtn">
-            <view data-name="{{item}}" class="point"></view>
-            <text data-name="{{item}}" class="name">{{item}}</text>
-            <text data-name="{{item}}" class="arrow">></text>
+    <view wx:for="{{classifyOnes}}" wx:for-index="idx" wx:for-item="classifyOne">
+        <view class="classify" data-name="{{classifyOne}}" bindtap="booksListBtn">
+            <view data-name="{{classifyOne}}" class="point background-color{{idx%10}}"></view>
+            <text data-name="{{classifyOne}}" class="name">{{classifyOne}}</text> 
+            <text data-name="{{classifyOne}}" class="arrow"> > </text>
         </view>
     </view>
     <!-- <view wx:for="{{classifyOnes}}">

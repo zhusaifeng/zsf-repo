@@ -31,7 +31,7 @@ Page({
     booksListBtn:function(e){
         var name=e.target.dataset.name;
         wx.navigateTo({
-            url: '/pages/books-search/books-search?item=' + name,
+            url: '/pages/books-search/books-search?classifyOne=' + name,
             success: (result)=>{
                 console.log("跳转成功");
                 console.log(name);
@@ -39,7 +39,6 @@ Page({
             fail: ()=>{console.log("跳转失败")},
             complete: ()=>{}
         });
-
     },
 
     /**

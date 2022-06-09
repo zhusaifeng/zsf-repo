@@ -1,30 +1,34 @@
-// pages/books-search/books-search.js
+// pages/book-detail/book-detail.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        books:{}
+        book: {},
+        bookId: 0,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
-        var classifyOne = options.classifyOne;
-        console.log(classifyOne);
+    onLoad: function (options) {
         var that = this;
+        var bookId = options.bookId;
         wx.request({
-        url: getApp().globalData.url + 'api-book-book-bynamelike/' + classifyOne,
-        data: {},
-        method: 'GET',
-        success: function(res){
-            that.setData({books: res.data});
-            console.log(res.data);
-        }
-        })
+            url: getApp().globalData.url + 'api-book-book-byid/' + bookId,
+            data: {},
+            method: 'GET',
+            success: function (res) {
+                that.setData({
+                    book: res.data,
+                    bookId: options.id,
+                });
+                console.log(bookId);
+            },
+        });
     },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

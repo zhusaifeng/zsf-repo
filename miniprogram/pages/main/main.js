@@ -6,7 +6,7 @@ Page({
      */
     data: {
         hotBookList: {},
-        recommendBookList:{},
+        recommendBookList: {},
         newBookList: {},
     },
 
@@ -14,37 +14,60 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var that=this;
+        var that = this;
         //获取热门图书
-    wx.request({
-        url: getApp().globalData.url + 'api-index-getHotBook',
-        data: {},
-        method: 'GET',
-        success: function (res) {
-        that.setData({ hotBookList: res.data });
-        console.log(res.data);
-        }
-    });
+        wx.request({
+            url: getApp().globalData.url + 'api-index-getHotBook',
+            data: {},
+            method: 'GET',
+            success: function (res) {
+                that.setData({
+                    hotBookList: res.data
+                });
+                console.log(res.data);
+            }
+        });
 
-    //获取推荐图书
-    wx.request({
-        url: getApp().globalData.url + 'api-index-getRecommendBook/' + 1,
-        data: {},
-        method: 'GET',
-        success: function (res) {
-        that.setData({ recommendBookList: res.data });
-        }
-    })
-    //获取新书
-    wx.request({
-        url: getApp().globalData.url + 'api-index-getNewBook',
-        data: {},
-        method: 'GET',
-        success: function (res) {
-        that.setData({ newBookList: res.data });
-        }
-    })
-        
+        //获取推荐图书
+        wx.request({
+            url: getApp().globalData.url + 'api-index-getRecommendBook/' + 1,
+            data: {},
+            method: 'GET',
+            success: function (res) {
+                that.setData({
+                    recommendBookList: res.data
+                });
+            }
+        })
+        //获取新书
+        wx.request({
+            url: getApp().globalData.url + 'api-index-getNewBook',
+            data: {},
+            method: 'GET',
+            success: function (res) {
+                that.setData({
+                    newBookList: res.data
+                });
+            }
+        })
+    },
+
+    bookDetailBtn: function (e) {
+        var bookId = e.currentTarget.id;
+        wx.navigateTo({
+            url: '/pages/book-detail/book-detail?scanCode=0&bookId=' + bookId
+        })
+        // console.log(bookId);
+    },
+
+    bookDetailBtn2: function (e) {
+        console.log(e,"=====e");
+        var bookId = e.currentTarget.id;
+        console.log(bookId);
+        wx.navigateTo({
+            url: '/pages/book-detail/book-detail?scanCode=0&bookId=' + bookId
+        })
+        // console.log(bookId);
     },
 
     /**

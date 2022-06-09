@@ -19,7 +19,7 @@
 
 
 <view wx:for="{{hotBookList}}">
-    <view class="recommend-card">
+    <view class="recommend-card" bindtap="bookDetailBtn2" id="{{item.bookId}}">
         <image src="{{item.bookImageBig}}"></image>
         <view class="recommend-card-right"> 
             <view class="title">书名:{{item.bookName}}</view>
@@ -36,7 +36,7 @@
     ————推荐书籍————
 </text>
 <view wx:for="{{recommendBookList}}">
-    <view class="recommend-card">
+    <view class="recommend-card" bindtap="bookDetailBtn2" id="{{item.bookId}}">
         <image src="{{item.bookImageBig}}"></image>
         <view class="recommend-card-right"> 
             <view class="title">书名:{{item.bookName}}</view>

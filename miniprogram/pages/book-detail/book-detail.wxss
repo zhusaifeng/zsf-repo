@@ -1,0 +1,77 @@
+/* pages/book-detail/book-detail.wxss */
+.desc-container {
+    width: 100%;
+    /* height: 180px; */
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 5px ;
+}
+.desc-container image {
+    width: 250rpx;
+    height: 125px;
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 0 5px 0 0;
+    /* float: left; */
+}
+
+.desc-container .right {
+    width: 50%;
+    /* height: 165px;
+    float: left; */
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.content-container {
+    width: 100%;
+    /* float: left; */
+    background: #fff;
+    margin-top: 1px;
+}
+
+.content-container .title {
+    font-size: 32rpx;
+    color: #000;
+    font-weight: bold;
+    padding: 15px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.content-container .content {
+    font-size: 28rpx;
+    color: #333;
+    padding: 15px;
+    display: block;
+    margin-top: -25px;
+    text-indent:1em;
+}
+
+.operate-container {
+    width: 100%;
+    /* height: 100px; */
+    background: #fff;
+    /* float: left; */
+    margin-top: 1px;
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+}
+.operate-container .btn-group{
+    display:flex;
+    justify-content: space-around;
+}
+
+.btn {
+    width: 250rpx;
+    /* height: 60rpx; */
+    border: 1px solid red;
+    color: red;
+    font-size: 30rpx;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 60rpx;
+    /* margin-top: -10px; */
+}
