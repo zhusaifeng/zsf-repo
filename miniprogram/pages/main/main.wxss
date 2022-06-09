@@ -1,10 +1,143 @@
 /* pages/main/main.wxss */
-.recommend-card{
-width: auto;
-height: auto;
-}
 .line{ 
 background: #E0E3DA;
 width: 100%;
 height: 5rpx;
 }
+
+.card{
+    width: 95%;
+    height: 50%;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin: 0 auto;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.booktitle{
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-top: 5px;
+    display: block;
+}
+
+
+/* 热门书籍卡片 */
+
+.new-card {
+    width: 95%;
+    height: 180px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+.new-card .tag {
+    border-radius: 5rpx;
+    width: 35px;
+    height: 16px;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: 1px solid #9fa8da;
+    color: #9fa8da;
+    align-self: flex-end;
+}
+
+
+.new-card .bookImg {
+    display: flex;
+    flex-direction: row;
+}
+
+.new-card .bookImg image {
+    width: 200rpx;
+    height: 100px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+
+/* 热门书籍卡片end */
+
+.word{
+    margin-left:80px;
+}
+
+.recommend-card {
+    width: 95%;
+    /* height: 140px; */
+    display: flex;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    padding: 5px;
+}
+
+.recommend-card image {
+    width: 200rpx;
+    height: 100px;
+    margin-top: 6px;
+    border-radius: 4px;
+    padding: 0 5px 0 0;
+}
+
+.recommend-card-right {
+    width: 70%;
+    /* height: 140px; */
+    /* float: right */
+}
+
+.recommend-card .tag {
+    border-radius: 5rpx;
+    width: 35px;
+    height: 16px;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 28rpx;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    border:1px solid #f48fb1;
+    color: #f48fb1;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+
+.recommend-card-right .title {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.recommend-card-right .author {
+    display: block;
+    font-size: 26rpx;
+    margin-top: 8px;
+    color: #999;
+}
+
+.recommend-card-right .classify {
+    display: block;
+    font-size: 26rpx;
+    color: #999;
+}
+
+.recommend-card-right .press {
+    display: block;
+    font-size: 26rpx;
+    color: #999;
+}
+
+
+/* 推荐卡片样式end */
