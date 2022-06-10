@@ -21,7 +21,6 @@ Page({
         method: 'GET',
         success: function(res){
             that.setData({books: res.data});
-            console.log(res.data);
         }
         })
     },

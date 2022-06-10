@@ -31,18 +31,13 @@ Page({
     booksListBtn:function(e){
         var name=e.target.dataset.name;
         wx.navigateTo({
-            url: '/pages/books-search/books-search?classifyOne=' + name,
-            success: (result)=>{
-                console.log("跳转成功");
-                console.log(name);
-            },
-            fail: ()=>{console.log("跳转失败")},
-            complete: ()=>{}
+            url: '/pages/books-list/books-list?classifyone=' + name,
         });
     },
     changeInput:function(e){
         console.log(e);
         var search=e.detail.value;
+        console.log(search);
         if(search!=''){
         wx.navigateTo({
             url:'/pages/books-search/books-search?search=' + search,
