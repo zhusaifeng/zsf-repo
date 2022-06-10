@@ -28,6 +28,50 @@ Page({
         });
     },
 
+    scanBtnOnClick: function (){
+        wx.scanCode({
+            success (res) {
+            console.log(res);
+            // 使用 JSON.stringify() 方法将 JavaScript 对象转换为字符串
+            var msg = JSON.stringify(res.result);
+            if (res.result) {
+                wx.request({
+                url:
+                    getApp().globalData.url +
+                    'api-book-book-bybookNumber/' +
+                    res.result,
+                data: {},
+                method: 'GET',
+                success: function (res) {
+                    console.log(res);
+                    if (res.data) {
+                    wx.navigateTo({
+                        url:
+                        '/pages/book-detail/book-detail?scanCode=1&bookId=' +
+                        res.data.bookId,
+                    });
+                    } else {
+                    wx.showToast({
+                        title: '当前书籍ISBN更新，暂不外借，请联系行政人员哦',
+                        icon: 'none',
+                        duration: 2000,
+                    });
+                    }
+                },
+                fail: function (err) {
+                    wx.showToast({
+                    title: '当前书籍数据更新，暂不外借，请联系行政人员哦',
+                    icon: 'none',
+                    duration: 2000,
+                    });
+                },
+                });
+            }
+
+            }
+        })
+    },
+
     booksListBtn:function(e){
         var name=e.target.dataset.name;
         wx.navigateTo({
