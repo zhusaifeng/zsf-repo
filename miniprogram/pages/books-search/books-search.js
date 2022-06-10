@@ -12,11 +12,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        var classifyOne = options.classifyOne;
-        console.log(classifyOne);
+        var search = options.search;
+        console.log(search);
         var that = this;
         wx.request({
-        url: getApp().globalData.url + 'api-book-book-bynamelike/' + classifyOne,
+        url: getApp().globalData.url + 'api-book-book-bynamelike/' + search,
         data: {},
         method: 'GET',
         success: function(res){

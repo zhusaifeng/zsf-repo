@@ -40,6 +40,15 @@ Page({
             complete: ()=>{}
         });
     },
+    changeInput:function(e){
+        console.log(e);
+        var search=e.detail.value;
+        if(search!=''){
+        wx.navigateTo({
+            url:'/pages/books-search/books-search?search=' + search,
+        })
+    }
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
