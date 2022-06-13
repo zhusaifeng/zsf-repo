@@ -21,14 +21,13 @@ Page({
         method: 'GET',
         success: function(res){
             that.setData({books: res.data});
-            console.log(res.data);
         }
         })
         wx.hideNavigationBarLoading();
     },
 
     bookDetailBtn:function(e){
-        console.log(e);
+        // console.log(e);
         var bookId=e.currentTarget.id;
         wx.navigateTo({
             url: '/pages/book-detail/book-detail?scanCode=0&bookId=' + bookId,

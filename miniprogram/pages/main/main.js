@@ -67,7 +67,7 @@ Page({
         wx.navigateTo({
             url: '/pages/book-detail/book-detail?scanCode=0&bookId=' + bookId
         })
-        // console.log(bookId);
+        console.log(bookId);
     },
 
     /**

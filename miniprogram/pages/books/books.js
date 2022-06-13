@@ -31,7 +31,6 @@ Page({
     scanBtnOnClick: function (){
         wx.scanCode({
             success (res) {
-            console.log(res);
             // 使用 JSON.stringify() 方法将 JavaScript 对象转换为字符串
             var msg = JSON.stringify(res.result);
             if (res.result) {
@@ -43,7 +42,7 @@ Page({
                 data: {},
                 method: 'GET',
                 success: function (res) {
-                    console.log(res);
+                    // console.log(res);
                     if (res.data) {
                     wx.navigateTo({
                         url:
@@ -81,7 +80,7 @@ Page({
     changeInput:function(e){
         console.log(e);
         var search=e.detail.value;
-        console.log(search);
+        // console.log(search);
         if(search!=''){
         wx.navigateTo({
             url:'/pages/books-search/books-search?search=' + search,

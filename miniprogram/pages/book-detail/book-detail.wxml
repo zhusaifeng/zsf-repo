@@ -22,7 +22,9 @@
 
     <view class="operate-container">
         <view class="btn-group">
-            <view class="btn" bindtap="borrowBtn">借阅本书</view>
-            <view class="btn" bindtap="scanBtnOnClick">扫码确认</view>
+            <view class="btn btn-left" wx:if="{{scanCode == 1}}" bindtap="borrowBtn" id="{{book.bookId}}">
+                借阅本书
+            </view>
+            <view class="btn" bindtap="scanBtnOnClick" wx:if="{{scanCode == 0}}">扫码确认</view>
         </view>
     </view>
