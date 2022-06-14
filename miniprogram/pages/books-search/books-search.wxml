@@ -10,7 +10,6 @@
             </view>
         </view>
     </view>
-
     <view wx:if="{{books == ''}}" style="margin: 100px auto; font-size: 32rpx; color:#999;">暂无内容</view>
 
 </view>

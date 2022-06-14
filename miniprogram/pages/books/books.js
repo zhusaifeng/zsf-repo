@@ -32,6 +32,7 @@ Page({
         wx.scanCode({
             success (res) {
             // 使用 JSON.stringify() 方法将 JavaScript 对象转换为字符串
+            // console.log(res);
             var msg = JSON.stringify(res.result);
             if (res.result) {
                 wx.request({

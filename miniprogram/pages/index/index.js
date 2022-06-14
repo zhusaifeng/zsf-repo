@@ -5,11 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    show: false,
+    animated: false,
   },
 
 getMyInfo: function(e){
- console.log(e.detail.userInfo)
+console.log(e.detail.userInfo)
 wx.switchTab({
   url: '/pages/books/books',
 });
@@ -24,8 +25,7 @@ onGetOpenid: function () {
     name: 'login',
     data: {},
     success: (res) => {
-      console.log(res)
-      console.log('[云函数] [login] user openid: ', res.result.openid);
+      console.log("云函数调用成功，用户openid为：", res.result.openid);
       // app.globalData.openid = res.result.openid
       this.btnlogin(res.result.openid);
     },
@@ -36,19 +36,17 @@ onGetOpenid: function () {
 },
 
 btnlogin: function (openId) {
+  console.log(openId)
   wx.request({
     url: getApp().globalData.url + 'api-user-login',
     data: {
-      username: openId,
+      username: "oAINZ41ClemedhAtskKh9D_c2EUQ",
       password: 123456,
     },
     method: 'GET',
     success: (res) => {
-      console.log(openId);
-      console.log(res);
       if (res.data.userId != null) {
         getApp().globalData.user = res.data;
-        console.log(res);
         this.setData({
           show: false,
           animated: false,
@@ -56,6 +54,9 @@ btnlogin: function (openId) {
       } else {
       }
     },
+    fail:(res)=>{
+      console.log("接口调用失败")
+    }
   });
 },
 

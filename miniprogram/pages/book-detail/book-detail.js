@@ -1,3 +1,5 @@
+
+
 // pages/book-detail/book-detail.js
 Page({
 
@@ -80,12 +82,25 @@ Page({
     borrowBtn:function(event){
         var that=this;
         var userId=getApp().globalData.user.userId;
-        console.log(userId);
+        // var userId=1327;
         var userCredit=getApp().globalData.user.userCredit;
         that.setData({
             show:true,
             animated:true,
         });
+        wx.request({
+            url: getApp().globalData.url + 'api-scan-borrowed-byuserid/' + userId,
+            data: {},
+            method: 'GET',
+            success: function (res) {
+            console.log("接口调用成功")
+            wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 2000
+            })
+        }
+        })
     },
 
 
