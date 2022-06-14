@@ -1,15 +1,16 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
-cloud.init()
+cloud.init({
+    env: cloud.DYNAMIC_CURRENT_ENV
+})
 
 // 云函数入口函数
 exports.main = async (event, context) =>
 {
-
     try 
     {
-        const result = await cloud.openapi.subscribeMessage.send({
+        const result = await cloud.openapi.template.send({
           touser: cloud.getWXContext().OPENID, 
           templateId: "jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY",
           page: '/pages/books/books',
@@ -23,7 +24,6 @@ exports.main = async (event, context) =>
             data3: {
               value: event.returntime,
             },
-
           },
         })
         return result

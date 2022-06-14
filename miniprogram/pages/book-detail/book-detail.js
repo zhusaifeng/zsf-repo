@@ -11,6 +11,7 @@ Page({
         scanCode: 0,
         show: true,
         animated: true,
+        borrowId:0,
     },
 
     /**
@@ -81,6 +82,7 @@ Page({
     borrowBtn:function(event){
         var that=this;
         var userId=getApp().globalData.user.userId;
+        var bookId = event.currentTarget.id;
         // var userId=1327;
         var userCredit=getApp().globalData.user.userCredit;
         that.setData({
@@ -94,15 +96,43 @@ Page({
             success: function (res) {
             console.log("接口调用成功");
             console.log(res.data.length)
-            debugger
             wx.requestSubscribeMessage({
                         tmplIds:[
-                            'NvcQPI8FErNTWUXm1FptE4YnUb1c1h0D87hugXXwdus',
-                            'rKeBG_kEKmjwp5vF8fq4gfDuD8bA8omhQNWtcJqEpaY',
-                            'DJefR0odTDiIr-0DsJSmV4AayQvJ4fNFZAOjPKKXD-I',
+                            'jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'
                         ],
                         success(res){
                             console.log(res);
+                            if (res.jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY == 'accept') {
+                                wx.request({
+                                    url:
+                                    getApp().globalData.url +
+                                    'api-scan-borrow-book/' +
+                                    userId +
+                                    '/' +
+                                    bookId,
+                                    data: {},
+                                    method: 'GET',
+                                    success: function (res) {
+                                    if(res.data!='-1'){
+                                        that.setData({
+                                            borrowId:res.data,
+                                        })
+                                        that.acceptBorrow(res.data);
+                                    }
+                                    else if(res.data=='-1'){
+                                        that.setData({
+                                            show:false,
+                                            animated:false,
+                                        })
+                                        wx.showToast({
+                                            title:'当前书籍已被借阅',
+                                            icon:'error',
+                                            duration:20000,
+                                        });
+                                    }
+                                    },
+                                });
+                            }
                         }
                     })
         }
@@ -110,28 +140,24 @@ Page({
     },
 
     subsribe:function(res){
-        console.log(res);
-        console.log("点击添加订阅")
         debugger
         wx.requestSubscribeMessage({
             tmplIds:['jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'],
             success(res){
-                console.log("订阅");
-                if(res['jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQ'=='accept']){
+                console.log("订阅成功");
+                console.log(res);
+                if(res.jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY=='accept'){
                     wx.cloud.callFunction({
-                        name:'template',
+                        name:'templateMessage',
                         data:{
-                            bookname:'平凡的世界',
-                            borrowpeople:'朱赛峰',
-                            returntime:2022-6-14,
                         },
                         success(res){
                             console.log(res);
+                            console.log("云函数调用成功")
                         },
                         fail(res){
                             console.log("云函数调用失败")
                         }
-
                     })
                 }
             },
@@ -140,7 +166,25 @@ Page({
             }
         })
     },
+    acceptBorrow:function(borrowId){
+        var that=this;
+        wx.request({
+            url: getApp().globalData.url + 'api-scan-borrow-byid/' + borrowId,
+            data: {},
+            method: 'GET',
+            dataType: 'json',
+            responseType: 'text',
+            success: (res)=>{
+                that.setData({
+                    borrowMsg:res.data,
+                })
+                console.log(that.data.borrowMsg)
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+        });
 
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
