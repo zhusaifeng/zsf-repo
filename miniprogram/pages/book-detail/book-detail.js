@@ -1,5 +1,4 @@
 
-
 // pages/book-detail/book-detail.js
 Page({
 
@@ -93,13 +92,52 @@ Page({
             data: {},
             method: 'GET',
             success: function (res) {
-            console.log("接口调用成功")
-            wx.showToast({
-                title: '成功',
-                icon: 'success',
-                duration: 2000
-            })
+            console.log("接口调用成功");
+            console.log(res.data.length)
+            debugger
+            wx.requestSubscribeMessage({
+                        tmplIds:[
+                            'NvcQPI8FErNTWUXm1FptE4YnUb1c1h0D87hugXXwdus',
+                            'rKeBG_kEKmjwp5vF8fq4gfDuD8bA8omhQNWtcJqEpaY',
+                            'DJefR0odTDiIr-0DsJSmV4AayQvJ4fNFZAOjPKKXD-I',
+                        ],
+                        success(res){
+                            console.log(res);
+                        }
+                    })
         }
+        })
+    },
+
+    subsribe:function(res){
+        console.log(res);
+        console.log("点击添加订阅")
+        debugger
+        wx.requestSubscribeMessage({
+            tmplIds:['jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'],
+            success(res){
+                console.log("订阅");
+                if(res['jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQ'=='accept']){
+                    wx.cloud.callFunction({
+                        name:'template',
+                        data:{
+                            bookname:'平凡的世界',
+                            borrowpeople:'朱赛峰',
+                            returntime:2022-6-14,
+                        },
+                        success(res){
+                            console.log(res);
+                        },
+                        fail(res){
+                            console.log("云函数调用失败")
+                        }
+
+                    })
+                }
+            },
+            fail(res){
+                console.log("订阅失败")
+            }
         })
     },
 
