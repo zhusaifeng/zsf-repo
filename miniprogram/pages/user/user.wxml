@@ -14,6 +14,15 @@
 </view>
 
 
+<view >
+    <view class="set-card" bindtap="userBorrowBtn">
+            <image src="/images/setting/borrow.png" />
+            <view class="name">当前借阅</view>
+            <view class="arrow">></view>
+        </view>
+</view>
+
+
 <!-- <view class="">
     <open-data class="" type="userAvatarUrl" open-gid=""></open-data>
     <open-data class="" type="userNickName" open-gid=""></open-data>

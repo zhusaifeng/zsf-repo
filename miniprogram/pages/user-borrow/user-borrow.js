@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/user-borrow/user-borrow.js
 Page({
 
     /**
@@ -8,46 +8,12 @@ Page({
 
     },
 
-    userBorrowBtn: function() {
-    wx.navigateTo({
-    url: '/pages/user-borrow/user-borrow'
-    })
-},
-
-
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // wx.cloud.callFunction({
-        //     name:'add',
-        //     data:{
-        //         a:1,
-        //         b:3,
-        //     },
-        //     success:function(res){
-        //         console.log(res.result.sum);
-        //     }
-        // })
-
-        // wx.cloud.callFunction({
-        //     name: 'login',
-        //     data: {},
-        //     success: (res) => {
-        //     console.log(res)
-        //     console.log('[云函数] [login] user openid: ', res.result.openid);
-        //       // app.globalData.openid = res.result.openid
-
-        //     },
-        //     fail: (err) => {
-        //     console.error('[云函数] [login] 调用失败', err);
-        //     },
-        // });
 
     },
-
-
 
     /**
      * 生命周期函数--监听页面初次渲染完成

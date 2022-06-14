@@ -166,6 +166,39 @@ Page({
             }
         })
     },
+
+
+    // 获取借阅事件
+    writeCurrentDate: function (isBorrowTime) {
+        var now = new Date();
+        var year = now.getFullYear(); //得到年份
+        var month = now.getMonth(); //得到月份
+        var date = now.getDate(); //得到日期
+        var day = now.getDay(); //得到周几
+        var hour = now.getHours(); //得到小时
+        var minu = now.getMinutes(); //得到分钟
+        var sec = now.getSeconds(); //得到秒
+        var MS = now.getMilliseconds(); //获取毫秒
+        month = month + 1;
+        if (month < 10) month = '0' + month;
+        if (date < 10) date = '0' + date;
+        if (hour < 10) hour = '0' + hour;
+        if (minu < 10) minu = '0' + minu;
+        if (sec < 10) sec = '0' + sec;
+        if (MS < 100) MS = '0' + MS;
+        var time = '';
+        if (isBorrowTime) {
+        time = `${year}-${month}-${date}`;
+        } else {
+        var mydate2 = new Date();
+        mydate2.setDate(mydate2.getDate() + 7);
+        time = `${mydate2.getFullYear()}-${
+            mydate2.getMonth() + 1
+        }-${mydate2.getDate()}`;
+        }
+        return time;
+    },
+
     acceptBorrow:function(borrowId){
         var that=this;
         wx.request({
@@ -179,9 +212,63 @@ Page({
                     borrowMsg:res.data,
                 })
                 console.log(that.data.borrowMsg)
+                var borrowBookName = that.data.borrowMsg.book.bookName;
+                var borrowUserName = that.data.borrowMsg.user.user_true_name;
+                var borrowStartTime = that.writeCurrentDate(true);
+                var borrowEndTime = that.writeCurrentDate(false);
+                //请求批准借阅接口
+                wx.request({
+                    url: getApp().globalData.url + 'api-scan-allow-borrow/' + borrowId,
+                    data: {},
+                    method: 'GET',
+                    success: function (res) {
+                    that.setData({
+                        show: false,
+                        animated: false,
+                    });
+                    console.log('借阅成功');
+                    // 调用云函数推送订阅;
+                    wx.cloud.callFunction({
+                        name: 'templateMessage',
+                        data: {
+                        action: 'sendBorrowSubscribeMessage',
+                        data: {
+                            // 借阅日期
+                            time7: borrowStartTime,
+                            // 应还日期
+                            time8: borrowEndTime,
+                            // 书名
+                            thing5: borrowBookName,
+                            // 图书拥有者
+                            thing6: borrowUserName,
+                            // 结果
+                            thing3: '借阅成功',
+                        },
+                        },
+                        success: (res) => {
+                        console.log(
+                            '[云函数] [templateMessage] subscribeMessage.send: ',
+                            res
+                        );
+                        // 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面
+                        wx.redirectTo({
+                            url: '/pages/user-borrow/user-borrow',
+                        });
+                        },
+                        fail: (err) => {
+                        console.error('[云函数] [templateMessage] 调用失败', err);
+                        },
+                    });
+                    },
+                    fail: (err) => {
+                    wx.showToast({
+                        title: '借书失败，请联系行政人员',
+                        icon: 'error',
+                        duration: 2000,
+                    });
+                    },
+                });
             },
-            fail: ()=>{},
-            complete: ()=>{}
         });
 
     },

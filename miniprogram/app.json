@@ -7,7 +7,8 @@
     "pages/user/user",
     "pages/books-search/books-search",
     "pages/book-detail/book-detail",
-    "pages/books-list/books-list"
+    "pages/books-list/books-list",
+    "pages/user-borrow/user-borrow"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
