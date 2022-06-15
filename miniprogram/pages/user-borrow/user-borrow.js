@@ -132,7 +132,6 @@ Page({
                 animated: false,
                 });
                 console.log('归还成功');
-                // 调用云函数推送订阅;
                 wx.redirectTo({
                     url: '/pages/book-grade/book-grade?id=' + borrowId,
                 });

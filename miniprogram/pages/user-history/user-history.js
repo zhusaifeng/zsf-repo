@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/user-history/user-history.js
 Page({
 
     /**
@@ -8,49 +8,12 @@ Page({
 
     },
 
-    userBorrowBtn: function() {
-    wx.navigateTo({
-    url: '/pages/user-borrow/user-borrow'
-    })
-},
-
-userHistoryBtn:function(res){
-    wx.navigateTo({
-        url: '/pages/user-history/user-history',
-    });
-},
-
-userSettingBtn:function(res){
-    wx.navigateTo({
-        url: '/pages/user-setting/user-setting',
-    });
-
-},
-
-exitBtnOnClick:function(res){
-wx.request({
-    url: getApp().glabalData.url+'api-user-exit',
-    data: {},
-    method: 'GET',
-    success: (result)=>{
-        wx.navigateTo({
-            url: '/pages/index/index',
-        });
-        
-    },
-});
-
-},
-
-
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
     },
-
-
 
     /**
      * 生命周期函数--监听页面初次渲染完成

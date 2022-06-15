@@ -22,8 +22,26 @@
         </view>
 </view>
 
+<view >
+    <view class="set-card" bindtap="userHistoryBtn">
+            <image src="/images/setting/history.png" />
+            <view class="name">借阅历史</view>
+            <view class="arrow">></view>
+        </view>
+</view>
 
-<!-- <view class="">
-    <open-data class="" type="userAvatarUrl" open-gid=""></open-data>
-    <open-data class="" type="userNickName" open-gid=""></open-data>
-</view> -->
+<view >
+    <view class="set-card" bindtap="userSettingBtn">
+            <image src="/images/setting/set.png" />
+            <view class="name">账号设置</view>
+            <view class="arrow">></view>
+        </view>
+</view>
+
+<view >
+    <view class="set-card" bindtap="exitBtnOnClick">
+            <image src="/images/setting/exit.png" />
+            <view class="name">退出登录</view>
+            <view class="arrow">></view>
+        </view>
+</view>
