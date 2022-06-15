@@ -1,1 +1,6 @@
 /* pages/user-setting/user-setting.wxss */
+
+btn{
+    background-color: aquamarine;
+    color: aquamarine;
+}

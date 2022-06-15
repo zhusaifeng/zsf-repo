@@ -29,7 +29,7 @@ userSettingBtn:function(res){
 
 exitBtnOnClick:function(res){
 wx.request({
-    url: getApp().glabalData.url+'api-user-exit',
+    url: getApp().globalData.url + 'api-user-exit',
     data: {},
     method: 'GET',
     success: (result)=>{

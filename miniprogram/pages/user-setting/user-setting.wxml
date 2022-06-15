@@ -1,2 +1,5 @@
-<!--pages/user-setting/user-setting.wxml-->
-<text>pages/user-setting/user-setting.wxml</text>
+<checkbox color="red">新书推荐</checkbox>
+<checkbox  color="red">主题颜色</checkbox>
+<button style="background-color:aquamarine">取消</button>
+
+<button style="background-color:aquamarine;margin-top:10px">确认</button>
