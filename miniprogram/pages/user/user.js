@@ -36,10 +36,8 @@ wx.request({
         wx.navigateTo({
             url: '/pages/index/index',
         });
-        
     },
 });
-
 },
 
 
