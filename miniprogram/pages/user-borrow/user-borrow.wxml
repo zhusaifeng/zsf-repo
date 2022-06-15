@@ -1,2 +1,19 @@
 <!--pages/user-borrow/user-borrow.wxml-->
-<text>pages/user-borrow/user-borrow.wxml</text>
+<view class="main-container">
+
+
+<view class="card" wx:for="{{borrowList}}" wx:for-item="borrow">
+    <view style="margin-top:10px;"></view>
+    <view wx:if="{{borrow.borrowStatus == 1}}">借阅图书：《{{borrow.book.bookName}}》</view>
+    <view>所属类别：{{borrow.book.bookClassifyOne}}</view>
+    <view wx:if="{{borrow.borrowStatus != -1}}">借阅时间：{{borrow.borrowStartTime}}</view>
+    <view wx:if="{{borrow.borrowStatus != -1}}">应还时间：{{borrow.borrowShouldTime}}</view>
+    <view wx:if="{{borrow.borrowStatus != -1}}" class="btn" id="{{borrow.book.bookId}}" data-borrowStatus="{{borrow.borrowStatus}}" bindtap="returnBtn">我要还书</view>
+</view>
+
+    <view wx:if="{{borrowList == 0}}" style="color:#666; font-size:32rpx; text-align:center; margin-top:100px;">
+    <span wx:if="{{!show}}">暂无借阅</span>
+    </view>
+
+
+</view>
