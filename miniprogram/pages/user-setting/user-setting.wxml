@@ -1,15 +1,6 @@
 <!--pages/user-setting/user-setting.wxml-->
 <view class="main-container">
     <form bindsubmit="formSubmit">
-        <view class="usernameSetting" hidden="true">
-            <text>用户名</text>
-            <input type="text" value="{{user.userUsername}}" name="username"/>
-        </view>
-
-        <view class="usernameSetting" hidden="true">
-            <text>密码</text>
-            <input type="password" value="{{user.userPassword}}" name="password"/>
-        </view>
 
         <checkbox-group class="group" bindchange="checkboxMessage" class="checkboxSetting" name="messageStatus">
             <label class="" for="message"><text>消息推送</text></label>
