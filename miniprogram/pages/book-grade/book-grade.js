@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        star: ["/images/star/star_1.png", "/images/star/star_0.png", "/images/star/star_0.png", "/images/star/star_0.png", "/images/star/star_0.png"],
 
     },
 
@@ -14,6 +15,15 @@ Page({
     onLoad: function (options) {
 
     },
+
+    submitSubmitGrade:function(e){
+
+    },
+    onclick:function(e){
+
+    },
+
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

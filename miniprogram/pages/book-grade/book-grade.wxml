@@ -1,2 +1,15 @@
 <!--pages/book-grade/book-grade.wxml-->
-<text>pages/book-grade/book-grade.wxml</text>
+<view class="main-container">
+
+<text class="title"> 您的评价是对我们最好的鼓励</text>
+
+<view class="star-container">
+    <image src="{{star[0]}}" bindtap="onClick" id="1"></image>
+    <image src="{{star[1]}}" bindtap="onClick" id="2"></image>
+    <image src="{{star[2]}}" bindtap="onClick" id="3"></image>
+    <image src="{{star[3]}}" bindtap="onClick" id="4"></image>
+    <image src="{{star[4]}}" bindtap="onClick" id="5"></image>
+</view>
+
+<button class="submitBtn" bindtap="submitSubmitGrade">提交</button>
+</view>
