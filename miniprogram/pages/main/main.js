@@ -1,57 +1,82 @@
 // pages/main/main.js
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
-        hotBookList: {},
-        recommendBookList: {},
-        newBookList: {},
+    creditGood: false,
+    specialOn: false,
+    messageBtnClass: 'top-tag active',
+    specialBtnClass: 'top-tag',
+    user: {},
+    borrowWillOverdue: {},
+    borrowOverdue: {},
+    hotBookList: {},
+    recommendBookList: {},
+    newBookList: {},
+    forumBookList: {}
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        var that = this;
-        //获取热门图书
-        wx.request({
-            url: getApp().globalData.url + 'api-index-getHotBook',
-            data: {},
-            method: 'GET',
-            success: function (res) {
-                that.setData({
-                    hotBookList: res.data
-                });
-                console.log(res.data);
-            }
-        });
-
-        //获取推荐图书
-        wx.request({
-            url: getApp().globalData.url + 'api-index-getRecommendBook/' + 1,
-            data: {},
-            method: 'GET',
-            success: function (res) {
-                that.setData({
-                    recommendBookList: res.data
-                });
-            }
+    onLoad: function () {
+    var that = this;
+      //获取用户信息
+    that.setData({user: getApp().globalData.user});
+      //判断信用是否达标
+    if (getApp().globalData.user.userCredit >= 50) {
+        wx.setNavigationBarTitle({ title: '创辉达图书借阅' });
+        that.setData({creditGood: true});
+    }
+      //获取即将借阅到期的图书集合
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getBorrowWillOverdue/' + that.data.user.userId,
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({borrowWillOverdue: res.data});
+        }
+    })
+      //获取已经逾期未还的图书集合
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getBorrowOverdue/' + that.data.user.userId,
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({ borrowOverdue: res.data });
+        }
+    })
+      //获取热门图书
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getHotBook',
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({ hotBookList: res.data });
+        }
+    })
+      //获取推荐图书
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getRecommendBook/' + 1,
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({ recommendBookList: res.data });
+        }
+    })
+      //获取新书
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getNewBook',
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({ newBookList: res.data });
+        }
         })
-        //获取新书
-        wx.request({
-            url: getApp().globalData.url + 'api-index-getNewBook',
-            data: {},
-            method: 'GET',
-            success: function (res) {
-                that.setData({
-                    newBookList: res.data
-                });
-            }
-        })
+      //获取书友图书
+    wx.request({
+        url: getApp().globalData.url + 'api-index-getForumBook',
+        data: {},
+        method: 'GET',
+        success: function (res) {
+        that.setData({ forumBookList: res.data });
+        }
+    })
     },
-
     bookDetailBtn: function (e) {
         var bookId = e.currentTarget.id;
         wx.navigateTo({
@@ -69,53 +94,4 @@ Page({
         })
         console.log(bookId);
     },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

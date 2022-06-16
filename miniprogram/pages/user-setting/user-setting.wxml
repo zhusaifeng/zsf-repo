@@ -1,5 +1,40 @@
-<checkbox color="red">新书推荐</checkbox>
-<checkbox  color="red">主题颜色</checkbox>
-<button style="background-color:aquamarine">取消</button>
+<!--pages/user-setting/user-setting.wxml-->
+<view class="main-container">
+    <form bindsubmit="formSubmit">
+        <view class="usernameSetting" hidden="true">
+            <text>用户名</text>
+            <input type="text" value="{{user.userUsername}}" name="username"/>
+        </view>
 
-<button style="background-color:aquamarine;margin-top:10px">确认</button>
+        <view class="usernameSetting" hidden="true">
+            <text>密码</text>
+            <input type="password" value="{{user.userPassword}}" name="password"/>
+        </view>
+
+        <checkbox-group class="group" bindchange="checkboxMessage" class="checkboxSetting" name="messageStatus">
+            <label class="" for="message"><text>消息推送</text></label>
+            <checkbox value="message" checked="{{user.userMessageStatus}}" />
+        </checkbox-group>
+
+        <checkbox-group class="group" bindchange="checkboxNew" class="checkboxSetting" name="newStatus">
+            <label class="" for="new"><text>新书推荐</text></label>
+            <checkbox value="new" checked="{{user.userNewStatus}}" />
+        </checkbox-group>
+
+        <checkbox-group class="group" bindchange="checkboxForum" class="checkboxSetting" name="forumStatus">
+            <label class="" for="forum"><text>书友推荐</text></label>
+            <checkbox value="forum"  checked="{{user.userForumStatus}}"/>
+        </checkbox-group>
+
+        <checkbox-group class="group" bindchange="checkboxRecommend" class="checkboxSetting" >
+            <label class="" for="recommend"><text>个人推荐数量: {{recommendMsg}}</text></label>
+        </checkbox-group>
+
+        <slider bindchange="sliderChange" step="30" value="{{user.userRecommendStatus}}" max="90" activeColor="rgb(185, 227, 241)" name="recommendStatus"/>
+
+        <view>
+            <button id="cancelBtn" bindtap="cancelBtn" style="background-color:rgb(185, 227, 241);width: 30%;">取消</button>
+            <button formType="submit" style="background-color:rgb(185, 227, 241);margin-top:10px;width:30%">保存</button>
+        </view>
+    </form>
+</view>

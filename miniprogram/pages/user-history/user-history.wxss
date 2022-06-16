@@ -15,7 +15,7 @@ page {
     font-size: 14px;
     line-height: 30px;
     float: left;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .card view {

@@ -1,6 +1,35 @@
 /* pages/user-setting/user-setting.wxss */
 
-btn{
-    background-color: aquamarine;
-    color: aquamarine;
+.checkboxSetting {
+    margin-top: 20px;
+    font-size: 32rpx;
+    padding: 20px;
+}
+
+.checkboxSetting label {
+    line-height: 2em;
+}
+
+.checkboxSetting checkbox {
+    float: right;
+}
+
+.wx-checkbox-input-checked::before {
+    color: rgb(185, 227, 241);
+}
+
+#saveBtn {
+    width: 35%;
+    color: #fff;
+    border: 1px solid rgb(185, 227, 241);
+    background: rgb(185, 227, 241);
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    margin-left: 20px;
+    font-size: 28rpx;
+}
+
+.wx-checkbox-input-checked::before {
+    color: rgb(185, 227, 241);
 }

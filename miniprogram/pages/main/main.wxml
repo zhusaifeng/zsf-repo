@@ -1,15 +1,16 @@
 <!--pages/main/main.wxml-->
 
-    <!--热门书籍-->
-    <view class="new-card">
+    <!--新书卡片1-->
+    <view class="new-card" wx:if="{{user.userNewStatus == 1}}">
         <view class="tag">新书</view>
-        <view style="text-align:center">—— 新书推荐 ——</view>
+        <view class="title" style="text-align:center">—— 近期上新图书 ——</view>
         <view class="bookImg">
-        <image src="http:{{newBookList[0].bookImageBig}}" bindtap="bookDetailBtn" id="{{hotBookList[0].bookId}}"/>
-        <image src="http:{{newBookList[1].bookImageBig}}" bindtap="bookDetailBtn" id="{{hotBookList[1].bookId}}"/>
-        <image src="http:{{newBookList[2].bookImageBig}}" bindtap="bookDetailBtn" id="{{hotBookList[2].bookId}}"/>
+        <image src="http:{{newBookList[0].bookImageBig}}" bindtap="bookDetailBtn" id="{{newBookList[0].bookId}}"/>
+        <image src="http:{{newBookList[1].bookImageBig}}" bindtap="bookDetailBtn" id="{{newBookList[1].bookId}}"/>
+        <image src="http:{{newBookList[2].bookImageBig}}" bindtap="bookDetailBtn" id="{{newBookList[2].bookId}}"/>
         </view>
     </view>
+
 
 
 
