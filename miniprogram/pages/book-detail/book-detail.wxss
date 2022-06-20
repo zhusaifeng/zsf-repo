@@ -117,3 +117,24 @@
     height: 100px;
     margin: 0 auto;
 }
+.grade{
+display: flex;
+flex-direction: row;
+}
+
+.right.grade{
+    font-size: 28rpx;
+    float: left;
+    margin-top: 10px;
+    /* display: flex;
+    flex-direction: row; */
+    display: flex;
+    flex-direction: row;
+}
+
+.right .grade image {
+    width: 10px;
+    height: 10px;
+    margin-top: 0;
+}
+
