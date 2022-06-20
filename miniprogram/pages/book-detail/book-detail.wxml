@@ -2,10 +2,10 @@
 <view class="desc-container">
     <image src="http:{{book.bookImageBig}}" />
     <view class="right">
-        <view>书名：{{book.bookName}}</view>
-        <view>作者：{{book.bookAuthor}}</view>
-        <view>出版社：{{book.bookPress}}</view>
-        <view>地址：{{book.bookAddress}}</view>
+        <view>书名：<text class="msg">{{book.bookName}}</text></view>
+        <view>作者：<text class="msg">{{book.bookAuthor}}</text></view>
+        <view>出版社：<text class="msg">{{book.bookPress}}</text></view>
+        <view>地址：<text class="msg">{{book.bookAddress}}</text></view>
     </view>
 </view>
     <!--内容介绍-->

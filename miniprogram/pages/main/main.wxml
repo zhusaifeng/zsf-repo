@@ -1,28 +1,38 @@
 <!--pages/main/main.wxml-->
 
     <!--新书卡片1-->
-    <view class="new-card" wx:if="{{user.userNewStatus == 1}}">
-        <view class="tag">新书</view>
-        <view class="title" style="text-align:center">—— 近期上新图书 ——</view>
-        <view class="bookImg">
+
+<view >
+    <view class="set-card">
+            <view class="name">近期上新图书</view>
+            <view class="arrow">></view>
+        </view>
+</view>
+
+<view class="new-card" wx:if="{{user.userNewStatus == 1}}">
+    <view class="tag">新书</view>
+    <view class="bookImg">
         <image src="http:{{newBookList[0].bookImageBig}}" bindtap="bookDetailBtn" id="{{newBookList[0].bookId}}"/>
         <image src="http:{{newBookList[1].bookImageBig}}" bindtap="bookDetailBtn" id="{{newBookList[1].bookId}}"/>
         <image src="http:{{newBookList[2].bookImageBig}}" bindtap="bookDetailBtn" id="{{newBookList[2].bookId}}"/>
-        </view>
     </view>
+</view>
 
 
 
 
-<text style="text-align:center;">
-    ————热门书籍—————
-</text>  
-
+<view >
+    <view class="set-card">
+            <view class="name">热门书籍</view>
+            <view class="arrow">></view>
+        </view>
+</view>
 
 <view wx:for="{{hotBookList}}">
     <view class="recommend-card" bindtap="bookDetailBtn2" id="{{item.bookId}}">
         <image src="{{item.bookImageBig}}"></image>
         <view class="recommend-card-right"> 
+            <view class="tag">热门</view>
             <view class="title">书名:{{item.bookName}}</view>
             <view class="author">作者：{{item.bookAuthor}}</view>
             <view class="press">出版社：{{bookPress}}</view>
@@ -33,13 +43,46 @@
 </view>
 
 
-<text style="text-align:center">
-    ————推荐书籍————
-</text>
-<view wx:for="{{recommendBookList}}">
+<view >
+    <view class="set-card">
+            <view class="name">推荐书籍</view>
+            <view class="arrow">></view>
+        </view>
+</view>
+<view wx:for="{{[recommendBookList[0],recommendBookList[1],recommendBookList[2]]}}" wx:if="{{user.userRecommendStatus >= 30}}">
     <view class="recommend-card" bindtap="bookDetailBtn2" id="{{item.bookId}}">
         <image src="{{item.bookImageBig}}"></image>
         <view class="recommend-card-right"> 
+            <view class="tag" style="color:#ffb74d;border: 1px solid #ffb74d">推荐</view>
+            <view class="title">书名:{{item.bookName}}</view>
+            <view class="author">作者：{{item.bookAuthor}}</view>
+            <view class="press">出版社：{{bookPress}}</view>
+            <view class="press">地址：{{item.bookAddress}}</view>
+            <view class="press">库存：{{item.bookResidue}}</view>
+        </view>
+    </view>
+</view>
+
+<view wx:for="{{[recommendBookList[3],recommendBookList[4],recommendBookList[5]]}}" wx:if="{{user.userRecommendStatus >= 60}}">
+    <view class="recommend-card" bindtap="bookDetailBtn2" id="{{item.bookId}}">
+        <image src="{{item.bookImageBig}}"></image>
+        <view class="recommend-card-right"> 
+            <view class="tag" style="color:#ffb74d;border: 1px solid #ffb74d">推荐</view>
+            <view class="title">书名:{{item.bookName}}</view>
+            <view class="author">作者：{{item.bookAuthor}}</view>
+            <view class="press">出版社：{{bookPress}}</view>
+            <view class="press">地址：{{item.bookAddress}}</view>
+            <view class="press">库存：{{item.bookResidue}}</view>
+        </view>
+    </view>
+</view>
+
+
+<view wx:for="{{[recommendBookList[6],recommendBookList[7]]}}" wx:if="{{user.userRecommendStatus >= 90}}">
+    <view class="recommend-card" bindtap="bookDetailBtn2" id="{{item.bookId}}">
+        <image src="{{item.bookImageBig}}"></image>
+        <view class="recommend-card-right"> 
+            <view class="tag" style="color:#ffb74d;border: 1px solid #ffb74d">推荐</view>
             <view class="title">书名:{{item.bookName}}</view>
             <view class="author">作者：{{item.bookAuthor}}</view>
             <view class="press">出版社：{{bookPress}}</view>

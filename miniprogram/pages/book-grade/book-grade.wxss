@@ -29,17 +29,17 @@ image {
 }
 
 .submitBtn {
-    width: 90%;
+    width: 60%;
     margin: 0 auto;
     height: 80rpx;
     background-color: #fff;
     border-radius: 5px;
-    color: #D7000F;
+    color: rgb(185, 227, 241);
     text-align: center;
-    line-height: 80rpx;
+    /* line-height: 80rpx; */
     font-size: 32rpx;
     margin-top: 200rpx;
-    border: 1px solid #D7000F;
+    border: 1px solid rgb(185, 227, 241);
 }
 
 button::after {

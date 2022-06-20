@@ -4,12 +4,12 @@
 /* 热门书籍卡片 */
 
 .new-card {
-    width: 95%;
+    width: 100%;
     height: 180px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 5px;
-    margin-top: 10px;
+    /* margin-bottom: 10px; */
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -54,11 +54,27 @@
     margin: 0 auto;
     background-color: #fff;
     border-radius: 5px;
-    margin-top: 10px;
+    /* margin-bottom: 10px; */
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     padding: 5px;
 }
 
+
+.recommend-card .tag {
+    border-radius: 5rpx;
+    width: 35px;
+    height: 16px;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border: 1px solid #f48fb1;
+    color: #f48fb1;
+    align-self: flex-end;
+    float: right;
+
+}
 .recommend-card image {
     width: 200rpx;
     height: 100px;
@@ -101,3 +117,27 @@
 
 
 /* 推荐卡片样式end */
+
+.set-card {
+    width: 100%;
+    height: 30px;
+    margin-top: 2px;
+    background-color: aliceblue;
+}
+
+
+.set-card .name {
+    font-size: 36rpx;
+    color: #000;
+    line-height: 30px;
+    margin-left: 10px;
+    float: left;
+}
+
+.set-card .arrow {
+    font-size: 36rpx;
+    color: #666;
+    line-height: 30px;
+    float: right;
+    margin-right: 15px;
+}

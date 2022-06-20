@@ -31,6 +31,7 @@ Page({
                     var mydate2 = data[i].borrowEndTime.getFullYear() + "-" + (data[i].borrowEndTime.getMonth() + 1) + "-" + data[i].borrowEndTime.getDate();
                     data[i].borrowEndTime = mydate2;
                 }
+                data.reverse();
                 that.setData({history: data});
                 console.log(data);
             },

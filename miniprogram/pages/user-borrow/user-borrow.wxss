@@ -18,16 +18,16 @@
 .card .btn {
     /*width: 400rpx;
     height: 60rpx;*/
-    width: 240px;
+    width: 180px;
     height: 30px;
     background: #fff;
-    color: #D7000F;
+    color: rgb(185, 227, 241);
     text-align: center;
     line-height: 30px;
     border-radius: 5px;
     margin: 0 auto;
     font-size: 14px;
     margin-top: 20px;
-    border: 1px solid #D7000F;
+    border: 1px solid rgb(185, 227, 241);
     margin-bottom: 0;
 }

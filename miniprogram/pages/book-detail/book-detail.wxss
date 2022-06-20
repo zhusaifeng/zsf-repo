@@ -42,7 +42,7 @@
 
 .content-container .content {
     font-size: 28rpx;
-    color: #333;
+    color: lightblue;
     padding: 15px;
     display: block;
     margin-top: -25px;
@@ -74,4 +74,9 @@
     border-radius: 5px;
     line-height: 60rpx;
     /* margin-top: -10px; */
+}
+
+.msg{
+    color:lightblue;
+    font-size: small;
 }

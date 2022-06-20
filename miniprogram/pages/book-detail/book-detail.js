@@ -25,6 +25,12 @@ Page({
             data: {},
             method: 'GET',
             success: function (res) {
+                console.log(res);
+                if(res.data.bookPress==""){res.data.bookPress="数据正在更新中"};
+                if(res.data.bookAuthor==""){
+                    res.data.bookAuthor="数据正在更新中";
+                };
+                if(res.data.bookDesc==null){res.data.bookDesc="数据正在更新中"};
                 that.setData({
                     book: res.data,
                     bookId: options.bookId,
@@ -226,39 +232,12 @@ Page({
                         show: false,
                         animated: false,
                     });
-                    console.log('借阅成功');
-                    // 调用云函数推送订阅;
-                    wx.cloud.callFunction({
-                        name: 'templateMessage',
-                        data: {
-                        action: 'sendBorrowSubscribeMessage',
-                        data: {
-                            // 借阅日期
-                            time7: borrowStartTime,
-                            // 应还日期
-                            time8: borrowEndTime,
-                            // 书名
-                            thing5: borrowBookName,
-                            // 图书拥有者
-                            thing6: borrowUserName,
-                            // 结果
-                            thing3: '借阅成功',
-                        },
-                        },
-                        success: (res) => {
-                        console.log(
-                            '[云函数] [templateMessage] subscribeMessage.send: ',
-                            res
-                        );
-                        // 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面
-                        wx.redirectTo({
-                            url: '/pages/user-borrow/user-borrow',
-                        });
-                        },
-                        fail: (err) => {
-                        console.error('[云函数] [templateMessage] 调用失败', err);
-                        },
+                    console.log('借书成功');
+                    debugger
+                    wx.redirectTo({
+                        url: '/pages/user-borrow/user-borrow',
                     });
+                    
                     },
                     fail: (err) => {
                     wx.showToast({
