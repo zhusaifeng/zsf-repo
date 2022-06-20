@@ -80,3 +80,40 @@
     color:lightblue;
     font-size: small;
 }
+
+.recommended-container {
+    width: 100%;
+    height: 200px;
+    background: #fff;
+    margin-top: 1px;
+    /* float: left; */
+}
+
+.recommended-container .recommended-book-box{
+    height: 100px;
+    overflow: auto;
+}
+
+.recommended-container .title {
+    font-size: 32rpx;
+    color: #000;
+    font-weight: bold;
+    padding: 15px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.recommended-container .book {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.recommended-container image {
+    width: 200rpx;
+    height: 100px;
+    margin: 0 auto;
+}
