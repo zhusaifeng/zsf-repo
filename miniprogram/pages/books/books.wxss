@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 .search-container {
-    background: rgb(185, 227, 241);
+    background: var(--themeColor);
     height: 50px;
     width: 100%;
     position: fixed;
@@ -64,5 +64,5 @@
     border-radius: 100%;
     margin-top: 15px;
     float: left;    
-    background-color:rgb(185, 227, 241);
+    background-color:var(--themeColor);
 }
