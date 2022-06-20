@@ -11,5 +11,5 @@
     <image src="{{star[4]}}" bindtap="onClick" id="5"></image>
 </view>
 
-<button class="submitBtn" bindtap="submitSubmitGrade">提交</button>
+<button class="submitBtn" bindtap="submitGrade">提交</button>
 </view>

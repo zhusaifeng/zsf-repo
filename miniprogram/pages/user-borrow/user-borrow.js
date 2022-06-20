@@ -133,7 +133,7 @@ Page({
                 });
                 console.log('归还成功');
                 wx.redirectTo({
-                    url: '/pages/book-grade/book-grade?id=' + borrowId,
+                    url: '/pages/book-grade/book-grade?borrowId=' + borrowId,
                 });
             },
             fail: (err) => {

@@ -2,6 +2,17 @@
 <view class="main-container">
     <form bindsubmit="formSubmit">
 
+        <view class="usernameSetting" hidden="true">
+            <text>用户名</text>
+            <input type="text" value="{{user.userUsername}}" name="username"/>
+        </view>
+
+        <view class="usernameSetting" hidden="true">
+            <text>密码</text>
+            <!-- value输入框的初始内容，输入用户名和密码 -->
+            <input type="password" value="{{user.userPassword}}" name="password"/>
+        </view>
+
         <checkbox-group class="group" bindchange="checkboxMessage" class="checkboxSetting" name="messageStatus">
             <label class="" for="message"><text>消息推送</text></label>
             <checkbox value="message" checked="{{user.userMessageStatus}}" />

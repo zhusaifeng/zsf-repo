@@ -38,6 +38,8 @@ Page({
     this.setData({recommendMsg: msg});
     },
     formSubmit: function(e) {
+    console.log(e);
+    debugger
     var id = this.data.user.userId;
     var username = e.detail.value.username;
     var password = e.detail.value.password;
