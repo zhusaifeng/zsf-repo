@@ -12,6 +12,7 @@ Page({
         show: true,
         animated: true,
         borrowId:0,
+        bookRecommend: [],
     },
 
     /**
@@ -43,6 +44,27 @@ Page({
             scanCode: 1,
         });
         }
+
+        wx.request({
+            url: getApp().globalData.url + 'api-book-recommend/' + bookId,
+            data: {},
+            method: 'GET',
+            success: function (res) {
+            if (res.statusCode == 200) {
+                that.setData({
+                bookRecommend: res.data,
+                });
+            }
+            },
+        });
+    },
+
+    bookDetailBtn:function(e){
+    var bookId=e.currentTarget.id;
+    wx.navigateTo({
+        url:'/pages/book-detail/book-detail?bookId='+bookId,
+    })
+
     },
 
     scanBtnOnClick:function(){
