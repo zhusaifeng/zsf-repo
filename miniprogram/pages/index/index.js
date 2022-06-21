@@ -34,7 +34,6 @@ onGetOpenid: function () {
     name: 'login',
     data: {},
     success: (res) => {
-      console.log("云函数调用成功，用户openid为：", res.result.openid);
       // app.globalData.openid = res.result.openid
       this.btnlogin(res.result.openid);
     },
@@ -45,7 +44,6 @@ onGetOpenid: function () {
 },
 
 btnlogin: function (openId) {
-  console.log(openId)
   wx.request({
     url: getApp().globalData.url + 'api-user-login',
     data: {

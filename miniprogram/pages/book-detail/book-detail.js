@@ -26,7 +26,6 @@ Page({
             data: {},
             method: 'GET',
             success: function (res) {
-                console.log(res);
                 if(res.data.bookPress==""){res.data.bookPress="数据正在更新中"};
                 if(res.data.bookAuthor==""){
                     res.data.bookAuthor="数据正在更新中";
@@ -128,14 +127,11 @@ Page({
             data: {},
             method: 'GET',
             success: function (res) {
-            console.log("接口调用成功");
-            console.log(res.data.length)
             wx.requestSubscribeMessage({
                         tmplIds:[
                             'jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'
                         ],
                         success(res){
-                            console.log(res);
                             if (res.jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY == 'accept') {
                                 wx.request({
                                     url:
@@ -179,14 +175,12 @@ Page({
             tmplIds:['jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'],
             success(res){
                 console.log("订阅成功");
-                console.log(res);
                 if(res.jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY=='accept'){
                     wx.cloud.callFunction({
                         name:'templateMessage',
                         data:{
                         },
                         success(res){
-                            console.log(res);
                             console.log("云函数调用成功")
                         },
                         fail(res){
@@ -245,7 +239,6 @@ Page({
                 that.setData({
                     borrowMsg:res.data,
                 })
-                console.log(that.data.borrowMsg)
                 var borrowBookName = that.data.borrowMsg.book.bookName;
                 var borrowUserName = that.data.borrowMsg.user.user_true_name;
                 var borrowStartTime = that.writeCurrentDate(true);
@@ -261,7 +254,6 @@ Page({
                         animated: false,
                     });
                     console.log('借书成功');
-                    debugger
                     wx.redirectTo({
                         url: '/pages/user-borrow/user-borrow',
                     });

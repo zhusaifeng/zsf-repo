@@ -33,7 +33,6 @@ Page({
                 }
                 data.reverse();
                 that.setData({history: data});
-                console.log(data);
             },
             fail: ()=>{},
             complete: ()=>{}

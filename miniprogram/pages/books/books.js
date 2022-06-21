@@ -24,7 +24,6 @@ Page({
                 classifyOnes: res.data,
             });
             },
-            fail: ()=>{console.log("调用接口失败")},
         });
     },
 
@@ -32,7 +31,6 @@ Page({
         wx.scanCode({
             success (res) {
             // 使用 JSON.stringify() 方法将 JavaScript 对象转换为字符串
-            // console.log(res);
             var msg = JSON.stringify(res.result);
             if (res.result) {
                 wx.request({
@@ -43,7 +41,6 @@ Page({
                 data: {},
                 method: 'GET',
                 success: function (res) {
-                    // console.log(res);
                     if (res.data) {
                     wx.navigateTo({
                         url:
@@ -79,9 +76,7 @@ Page({
         });
     },
     changeInput:function(e){
-        console.log(e);
         var search=e.detail.value;
-        // console.log(search);
         if(search!=''){
         wx.navigateTo({
             url:'/pages/books-search/books-search?search=' + search,

@@ -15,8 +15,6 @@ Page({
      */
     onLoad: function (options) {
         var that=this;
-        console.log(options.borrowId);
-        debugger
         that.setData({borrowId: options.borrowId});
     },
 
