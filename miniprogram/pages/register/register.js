@@ -68,8 +68,6 @@ formSubmit: function (e) {
           // user_nickname: '😄',
         user_openid:"oAINZ41ClemedhAtskKh9D_c2EUQ",
         };
-        console.log(params);
-        debugger
         this.loginRigister(params);
     },
     fail: (err) => {
@@ -98,7 +96,9 @@ wx.request({
         } else {
           //注册失败
         // 
-        console.log(res.data)
+        wx.redirectTo({
+            url: '/pages/register/register?errorStatus=1',
+        });
         }
     },
     });
