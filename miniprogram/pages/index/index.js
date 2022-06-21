@@ -19,6 +19,15 @@ this.onGetOpenid();
 },
 
 
+getMyInfo2: function(e){
+  console.log(e.detail.userInfo)
+  getApp().globalData.userInfo = e.detail.userInfo;
+  wx.navigateTo({
+    url: '/pages/register/register',
+  });
+  },
+
+
 onGetOpenid: function () {
   // 调用云函数获取openid
   wx.cloud.callFunction({
@@ -59,6 +68,13 @@ btnlogin: function (openId) {
     }
   });
 },
+
+// register:function(e){
+//   wx.navigateTo({
+//   url: '/pages/register/register',
+//   });
+//   this.getMyInfo();
+// },
 
 
   /**

@@ -57,4 +57,12 @@
   border-radius: 50%;
 }
 
+.button2{
+  position: absolute;
+  top: 90%;
+  left: 30%;
+  size: 8px;
+  border-radius: 50%;
+}
+
 

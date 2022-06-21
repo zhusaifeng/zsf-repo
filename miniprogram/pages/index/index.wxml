@@ -9,5 +9,9 @@
         plain="{{true}}" hover-class="button-hover" open-type="getUserInfo" bindgetuserinfo="getMyInfo">
         微信登录
         </button>
+        <button class="button2" type="default" style="width:40%;color:white;border:2px solid white;" 
+        plain="{{true}}" hover-class="button-hover" open-type="getUserInfo" bindgetuserinfo="getMyInfo2">
+        账号注册
+        </button>
     </view>
 </view>

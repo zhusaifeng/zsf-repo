@@ -11,7 +11,8 @@
     "pages/user-borrow/user-borrow",
     "pages/book-grade/book-grade",
     "pages/user-history/user-history",
-    "pages/user-setting/user-setting"
+    "pages/user-setting/user-setting",
+    "pages/register/register"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

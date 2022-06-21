@@ -1,17 +1,18 @@
-<!--pages/login/login.wxml-->
 <view class="container">
-    <image class="bg-img" src="../../images/3.jpg"></image>
-    <view class="logo">
-        <text class="logo-title">创辉达书城登录</text>
-        <!-- plain设置按钮镂空，即背景色透明 -->
-        <button bindtap="gotomain" class="button" type="default" style="width:40%;color:white;border:2px solid white;" 
-        plain="{{true}}" hover-class="button-hover">
-        登录
-        </button>
-        <button bindtap="gotomain" class="button" type="default" style="width:40%;color:white;border:2px solid white;" 
-        plain="{{true}}" hover-class="button-hover">
-        微信登录
-        </button>
+    <text class="errorMsg" wx:if="{{errorStatus}}">用户名或密码输入有误</text>
+    <view class="formContainer">
+        <form bindsubmit="formSubmit">
+            <view class="usernameContainer">
+                <image src="/images/login/login-user.png"></image>
+                <input type="text" name="username" placeholder="用户名" />
+            </view>
+            <view class="passwordContainer">
+                <image src="/images/login/login-password.png"></image>
+                <input type="password" name="password" placeholder="密码" />
+            </view>
+            <button class="loginBtn" formType="submit">登录</button>
+        </form>
+        <text class="navBtn" bindtap="navBtnOnClick">—— 新用户注册 ——</text>
     </view>
 </view>
 
