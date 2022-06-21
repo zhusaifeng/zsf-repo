@@ -32,6 +32,9 @@ Page({
                     res.data.bookAuthor="数据正在更新中";
                 };
                 if(res.data.bookDesc==null){res.data.bookDesc="数据正在更新中"};
+                if(res.data.bookAddress==null){res.data.bookAddress="数据正在更新中"};
+                if(res.data.bookGrade==null){res.data.bookGrade="暂无评分"};
+                if(res.data.bookImageBig==""){res.data.bookImageBig=null};
                 that.setData({
                     book: res.data,
                     bookId: options.bookId,
@@ -55,6 +58,9 @@ Page({
                 bookRecommend: res.data,
                 });
             }
+            else{that.setData({
+                bookRecommend: null,
+                });}
             },
         });
     },

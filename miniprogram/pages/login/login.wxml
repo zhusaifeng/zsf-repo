@@ -8,7 +8,7 @@
         plain="{{true}}" hover-class="button-hover">
         登录
         </button>
-         <button bindtap="gotomain" class="button" type="default" style="width:40%;color:white;border:2px solid white;" 
+        <button bindtap="gotomain" class="button" type="default" style="width:40%;color:white;border:2px solid white;" 
         plain="{{true}}" hover-class="button-hover">
         微信登录
         </button>

@@ -5,13 +5,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        books: {}
+        books: {},
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        console.log(options);
+        debugger
         var classifyOne = options.classifyone;
         var that = this;
         wx.showNavigationBarLoading();
@@ -20,7 +22,16 @@ Page({
         data: {},
         method: 'GET',
         success: function(res){
+            // console.log(res);
+            // debugger
+            // for(var i=0;i<30;i++){
+            //     if(res.data[i].bookImageBig==""){
+            //         res.data[i].bookImageBig=null;
+            //     }
+            // }
             that.setData({books: res.data});
+            // console.log(res.data)
+            // debugger
         }
         })
         wx.hideNavigationBarLoading();

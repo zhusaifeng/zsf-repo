@@ -24,6 +24,14 @@ Page({
         }
         })
     },
+
+    bookDetailBtn: function (event) {
+        var bookId = event.currentTarget.id;
+        wx.navigateTo({
+        url: '/pages/book-detail/book-detail?scanCode=0&id=' + bookId
+        })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

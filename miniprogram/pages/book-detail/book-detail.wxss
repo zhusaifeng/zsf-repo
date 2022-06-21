@@ -7,10 +7,11 @@
     justify-content: flex-start;
     padding-bottom: 5px ;
 }
+
 .desc-container image {
     width: 250rpx;
     height: 125px;
-    margin-top: 10px;
+    margin-top: 15px;
     border-radius: 4px;
     padding: 0 5px 0 0;
     /* float: left; */
@@ -20,7 +21,7 @@
     width: 50%;
     /* height: 165px;
     float: left; */
-    padding-top: 20px;
+    padding-top: 15px;
     padding-left: 10px;
 }
 
@@ -41,7 +42,7 @@
 }
 
 .content-container .content {
-    font-size: 28rpx;
+    font-size: 35rpx;
     color: lightblue;
     padding: 15px;
     display: block;
@@ -102,7 +103,6 @@
     display: block;
     margin-bottom: 10px;
 }
-
 .recommended-container .book {
     width: 100%;
     height: 100px;

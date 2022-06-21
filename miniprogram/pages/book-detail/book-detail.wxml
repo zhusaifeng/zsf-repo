@@ -1,6 +1,7 @@
 <!--pages/book-detail/book-detail.wxml-->
 <view class="desc-container">
-    <image src="http:{{book.bookImageBig}}" />
+    <image wx:if="{{book.bookImageBig!=null}}" src="http:{{book.bookImageBig}}"/>
+    <image wx:if="{{book.bookImageBig==null}}" src="../../images/book/1.png"/>
     <view class="right">
         <view>书名：<text class="msg">{{book.bookName}}</text></view>
         <view>作者：<text class="msg">{{book.bookAuthor}}</text></view>
@@ -49,7 +50,7 @@
                     <image src="/images/main/star_1.png"/>
                     <image src="/images/main/star_1.png"/>
                 </view>
-                <text style="margin-top:-1px; margin-left:2px;">{{book.bookGrade}}</text>
+                <text style="margin-top:2px; margin-left:2px;color:lightblue;font-size: small;">{{book.bookGrade}}</text>
             </view>
     </view>
 </view>
@@ -67,7 +68,8 @@
 
     <view class="recommended-container">
         <text class="title">喜欢本书的人还可能喜欢</text>
-        <view class="recommended-book-box" wx:if="{{bookRecommend.length != 0}}">
+        <view  wx:if="{{bookRecommend==null}}" style="text-align:center;font-size 35rpx;color:lightblue">暂无推荐书籍</view>
+        <view class="recommended-book-box" wx:if="{{bookRecommend.length != 0 && bookRecommend!=null}}">
             <view class="book">
                 <image src="http:{{bookRecommend[0].bookImageBig}}" bindtap="bookDetailBtn" id="{{bookRecommend[0].bookId}}"></image>
                 <image src="http:{{bookRecommend[1].bookImageBig}}" bindtap="bookDetailBtn" id="{{bookRecommend[1].bookId}}"></image>
