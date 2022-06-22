@@ -8,6 +8,7 @@ Page({
         borrowList:0,
         show:false,
         animated:false,
+        borrowBookName:""
     },
 
     /**
@@ -113,7 +114,7 @@ Page({
             console.log(res);
             that.setData({ borrowMsg: res.data });
             console.log(res.data);
-            var borrowBookName = res.data.book.bookName;
+            var borrowBookName = res.data.book.bookName.substring(0,10);
             var borrowUserName = res.data.user.user_true_name;
             var borrowStartTime = that.writeCurrentDate(true);
             var borrowEndTime = that.writeCurrentDate(false);
@@ -141,7 +142,7 @@ Page({
                         action: 'sendReturnSubscribeMessage',
                         data:{
                             // 书名
-                            name1: '公路设计',
+                            name1: borrowBookName,
                             // 借阅者
                             name2: borrowUserName,
                             // 还书时间
@@ -156,6 +157,9 @@ Page({
                             title: '还书成功',
                             icon: 'success',
                             duration: 2000,
+                        });
+                        wx.navigateTo({
+                            url: '/pages/book-grade/book-grade',
                         });
                     },
                     fail: (err) => {

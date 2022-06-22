@@ -35,7 +35,7 @@ async function sendReturnSubscribeMessage(event) {
         data: {
           // 书名
         name1: {
-            "value":'公路工程',
+            "value":data.name1,
             // value: '腾讯微信总部',
         },
           // 借阅者
@@ -54,7 +54,7 @@ async function sendReturnSubscribeMessage(event) {
     });
       // result 结构
       // { errCode: 0, errMsg: 'openapi.templateMessage.send:ok' }
-    return result;
+    return result.errCode;
     } catch (err) {
       // 错误处理
       // err.errCode !== 0
