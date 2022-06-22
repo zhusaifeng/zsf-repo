@@ -110,16 +110,19 @@ Page({
         data: {},
         method: 'GET',
         success: function (res) {
+            console.log(res);
             that.setData({ borrowMsg: res.data });
-            var borrowBookName = that.data.borrowMsg.book.bookName.substring(0,10);
-            var borrowUserName = that.data.borrowMsg.user.user_true_name;
+            console.log(res.data);
+            var borrowBookName = res.data.book.bookName;
+            var borrowUserName = res.data.user.user_true_name;
             var borrowStartTime = that.writeCurrentDate(true);
             var borrowEndTime = that.writeCurrentDate(false);
+            console.log(borrowBookName+"=====================borrowBookName");
             //判断二维码是否过期
-            var qrborrowStartTime = that.data.borrowMsg.borrowStartTime;
-            console.log('borrowStartTime: ' + qrborrowStartTime);
-            console.log('timestamp:' + timestamp);
-            console.log(timestamp - qrborrowStartTime);
+            // var qrborrowStartTime = that.data.borrowMsg.borrowStartTime;
+            // console.log('borrowStartTime: ' + qrborrowStartTime);
+            // console.log('timestamp:' + timestamp);
+            // console.log(timestamp - qrborrowStartTime);
             //请求批准归还接口
             wx.request({
             url: getApp().globalData.url + 'api-scan-allow-return/' + borrowId,
@@ -138,7 +141,7 @@ Page({
                         action: 'sendReturnSubscribeMessage',
                         data:{
                             // 书名
-                            name1: borrowBookName,
+                            name1: '公路设计',
                             // 借阅者
                             name2: borrowUserName,
                             // 还书时间
@@ -157,6 +160,7 @@ Page({
                     },
                     fail: (err) => {
                         console.error('[云函数]调用失败', err);
+                        console.log(borrowBookName+"======borrowBookName")
                     },
                 })
                 

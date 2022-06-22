@@ -30,27 +30,27 @@ async function sendReturnSubscribeMessage(event) {
     try {
     const result = await cloud.openapi.subscribeMessage.send({
         touser: cloud.getWXContext().OPENID, // 通过 getWXContext 获取 OPENID
+        templateId: 'XL4TdPW3FyZeaLGikS_L2ujiTnIpXipEcSDie9OU2WY',
         page: 'pages/index/index',
         data: {
           // 书名
         name1: {
-            value: data.name1,
+            "value":'公路工程',
             // value: '腾讯微信总部',
         },
           // 借阅者
         name2: {
-            value: data.name2,
+            "value": data.name2,
         },
           // 还书时间
         time5: {
-            value: data.time5,
+            "value": data.time5,
         },
           // 备注
         thing4: {
-            value: data.thing4,
+            "value": data.thing4,
         },
         },
-        templateId: 'XL4TdPW3FyZeaLGikS_L2ujiTnIpXipEcSDie9OU2WY',
     });
       // result 结构
       // { errCode: 0, errMsg: 'openapi.templateMessage.send:ok' }
