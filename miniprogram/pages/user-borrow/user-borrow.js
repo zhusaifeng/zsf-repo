@@ -73,10 +73,10 @@ Page({
         var userId = getApp().globalData.user.userId;
         var userCredit = getApp().globalData.user.userCredit;
         wx.requestSubscribeMessage({
-        tmplIds: ['jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'],
+        tmplIds: ['XL4TdPW3FyZeaLGikS_L2ujiTnIpXipEcSDie9OU2WY'],
         success(res) {
             console.log(res);
-            if (res.jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY == 'accept') {
+            if (res.XL4TdPW3FyZeaLGikS_L2ujiTnIpXipEcSDie9OU2WY == 'accept') {
             wx.request({
                 url:
                 getApp().globalData.url +
@@ -131,9 +131,38 @@ Page({
                 animated: false,
                 });
                 console.log('归还成功');
-                wx.redirectTo({
-                    url: '/pages/book-grade/book-grade?borrowId=' + borrowId,
-                });
+                // 调用云函数推送订阅
+                wx.cloud.callFunction({
+                    name:'templateMessage',
+                    data:{
+                        action: 'sendReturnSubscribeMessage',
+                        data:{
+                            // 书名
+                            name1: borrowBookName,
+                            // 借阅者
+                            name2: borrowUserName,
+                            // 还书时间
+                            time5: borrowStartTime,
+                             // 备注
+                            thing4: '归还成功',
+                        }
+                    },
+                    success:(res)=>{
+                        console.log("云函数调用成功"+res)
+                        wx.showToast({
+                            title: '还书成功',
+                            icon: 'success',
+                            duration: 2000,
+                        });
+                    },
+                    fail: (err) => {
+                        console.error('[云函数]调用失败', err);
+                    },
+                })
+                
+                // wx.redirectTo({
+                //     url: '/pages/book-grade/book-grade?borrowId=' + borrowId,
+                // });
             },
             fail: (err) => {
                 wx.showToast({

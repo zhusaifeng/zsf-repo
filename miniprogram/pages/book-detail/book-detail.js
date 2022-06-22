@@ -129,10 +129,10 @@ Page({
             success: function (res) {
             wx.requestSubscribeMessage({
                         tmplIds:[
-                            'jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'
+                            'nPpuJ6mN1fLHx7a1lKefrBrHJ15xosOdeNV706RxKWU'
                         ],
                         success(res){
-                            if (res.jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY == 'accept') {
+                            if (res.nPpuJ6mN1fLHx7a1lKefrBrHJ15xosOdeNV706RxKWU == 'accept') {
                                 wx.request({
                                     url:
                                     getApp().globalData.url +

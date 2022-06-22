@@ -21,7 +21,6 @@ onLoad: function (option) {
 
 formSubmit: function (e) {
     console.log(e);
-    debugger
     if (!e.detail.value.user_true_name || !e.detail.value.user_depart) {
     wx.showToast({
         title: '请输入所有信息再进行注册',
