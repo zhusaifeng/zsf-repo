@@ -11,20 +11,36 @@ Page({
 
 getMyInfo: function(e){
 console.log(e.detail.userInfo)
-wx.switchTab({
-  url: '/pages/books/books',
-});
+// 一组动画完成
+this.animated.rotate(360).step()
+    this.setData({
+      // 导出动画序列
+      animated:this.animated.export()
+    })
+setTimeout(function(){
+  wx.switchTab({
+    url: '/pages/books/books',
+  });
+},500)
 getApp().globalData.userInfo = e.detail.userInfo;
 this.onGetOpenid();
+
+
 },
 
 
 getMyInfo2: function(e){
   console.log(e.detail.userInfo)
   getApp().globalData.userInfo = e.detail.userInfo;
-  wx.navigateTo({
-    url: '/pages/register/register',
-  });
+  this.animated.rotate(360).step()
+    this.setData({
+      animated:this.animated.export()
+    })
+    setTimeout(function(){
+      wx.navigateTo({
+        url: '/pages/register/register',
+      });
+    },500)
   },
 
 
@@ -88,6 +104,15 @@ btnlogin: function (openId) {
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+    var that=this;
+    // 执行动画赋值
+    that.animated=wx.createAnimation({
+      duration: 400,
+      timingFunction: 'ease',
+      delay: 0,
+      transformOrigin: '50% 50% 0'
+    });
 
   },
 

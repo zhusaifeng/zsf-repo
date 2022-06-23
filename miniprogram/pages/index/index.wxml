@@ -1,7 +1,7 @@
 <view class="container">
     <image class="bg-img" src="../../images/3.jpg"></image>
     <view class="logo">
-        <text class="logo-title">创辉达图书借阅</text>
+        <text class="logo-title" animation="{{animated}}">创辉达图书借阅</text>
         <text class="logo-content1">书中自有黄金屋</text>
         <text class="logo-content2">书中自有颜如玉</text>
         <!-- plain设置按钮镂空，即背景色透明 -->
