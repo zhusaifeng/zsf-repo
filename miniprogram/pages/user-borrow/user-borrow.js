@@ -8,8 +8,14 @@ Page({
         borrowList:0,
         show:false,
         animated:false,
-        borrowBookName:""
-    },
+        borrowBookName:"",
+        endTime:"",
+        startTime:""
+        // clock:"",
+        // countHour: null,
+        // countMinute: null,
+        // countSecond: null,
+        },
 
     /**
      * 生命周期函数--监听页面加载
@@ -32,17 +38,24 @@ Page({
                     animated: false,
                 });
                 var data = res.data;
+
                 for (var i = 0; i < data.length; ++i) {
                     //借书时间
-                    data[i].borrowStartTime = new Date(data[i].borrowStartTime);
+                    data[i].borrowStartTime = new Date();
+                    console.log(data[i].borrowStartTime);
                     var mydate =
                     data[i].borrowStartTime.getFullYear() +
-                    '/' +
+                    '-' +
                     (data[i].borrowStartTime.getMonth() + 1) +
-                    '/' +
-                    data[i].borrowStartTime.getDate();
+                    '-' +
+                    data[i].borrowStartTime.getDay()+
+                    '  '+
+                    data[i].borrowStartTime.getHours()+
+                    ':'+
+                    data[i].borrowStartTime.getMinutes()+
+                    ':'+data[i].borrowStartTime.getSeconds();
                     //应还时间
-                    var mydate2 = new Date(mydate);
+                    var mydate2 = new Date();
                     mydate2.setDate(data[i].borrowStartTime.getDate() + 7);
                     // var mydate2 = data[i].borrowStartTime.getFullYear() + "-" + (data[i].borrowStartTime.getMonth() + 2) + "-" + data[i].borrowStartTime.getDate();
                     // if ((data[i].borrowStartTime.getMonth() + 2) == 13) {
@@ -54,18 +67,70 @@ Page({
                     '-' +
                     (mydate2.getMonth() + 1) +
                     '-' +
-                    mydate2.getDate();
+                    mydate2.getDate()+
+                    ' '+
+                    mydate2.getHours()+
+                    ':'+
+                    mydate2.getMinutes()+
+                    ':'+
+                    mydate2.getSeconds();
                     data[i].borrowShouldTime = data[i].borrowShouldTime.replace(
                     /\-/g,
-                    '/'
+                    '-'
                     );
                 }
-                that.setData({ borrowList: data });
+                that.setData({ 
+                    borrowList: data,
+                    endTime:data[0].borrowShouldTime,
+                    startTime:data[0].borrowStartTime
+                });
             },
             fail: ()=>{},
             complete: ()=>{}
         });
+
+        this.singleCountDown();
     },
+
+
+    timeFormat(param) {
+        return param < 10 ? '0' + param : param;
+    },
+      //倒计时
+    singleCountDown: function () {
+        var that = this;
+        var time = 0;
+        var obj = {};
+        var endTime = new Date(that.data.endTime).getTime();//结束时间时间戳
+        var startTime = new Date().getTime();//当前时间时间戳
+        time = (endTime - startTime) / 1000;
+        // 如果活动未结束
+        if (time > 0) {
+          var hou = parseInt(time / (60 * 60));
+          var min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+          var sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+        obj = {
+            hou: that.timeFormat(hou),
+            min: that.timeFormat(min),
+            sec: that.timeFormat(sec)
+        }
+        } else { //活动已结束
+        obj = {
+            hou: "00",
+            min: "00",
+            sec: "00"
+        }
+          clearTimeout(that.data.timeIntervalSingle); //清除定时器
+        }
+        var timeIntervalSingle = setTimeout(that.singleCountDown, 1000);
+        that.setData({
+        timeIntervalSingle,
+        txtTime: obj,
+        })
+    },
+    
+
+
 
     returnBtn: function (event) {
         var bookId = event.currentTarget.id;

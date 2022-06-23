@@ -31,3 +31,25 @@
     border: 1px solid rgb(185, 227, 241);
     margin-bottom: 0;
 }
+
+
+.item {
+    display: flex;
+    align-items:left;
+    height: 200rpx;
+    width: 90%;
+    border-bottom: 2rpx solid #eee;
+}
+
+.item .txt-time {
+    background-color: #6EBEC7;
+    color: #fff;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    margin-top: 7px;
+    font-weight: bold;
+    height: 42rpx;
+    width: 120rpx;
+    line-height: 42rpx;
+    text-align: center;
+}

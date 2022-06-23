@@ -8,6 +8,16 @@
     <view>所属类别：{{borrow.book.bookClassifyOne}}</view>
     <view wx:if="{{borrow.borrowStatus != -1}}">借阅时间：{{borrow.borrowStartTime}}</view>
     <view wx:if="{{borrow.borrowStatus != -1}}">应还时间：{{borrow.borrowShouldTime}}</view>
+        
+    <view class="item">
+        借阅剩余时间：
+        <view class="txt-time">{{txtTime.hou}}小时</view>
+        :
+        <view class="txt-time">{{txtTime.min}}分钟</view>
+        :
+        <view class="txt-time">{{txtTime.sec}}秒</view>
+    </view>
+
     <view wx:if="{{borrow.borrowStatus != -1}}" class="btn" id="{{borrow.book.bookId}}" data-borrowStatus="{{borrow.borrowStatus}}" bindtap="returnBtn">我要还书</view>
 </view>
 
