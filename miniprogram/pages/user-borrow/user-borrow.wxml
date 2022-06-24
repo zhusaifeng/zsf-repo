@@ -6,8 +6,8 @@
     <view style="margin-top:10px;"></view>
     <view wx:if="{{borrow.borrowStatus == 1}}">借阅图书：《{{borrow.book.bookName}}》</view>
     <view>所属类别：{{borrow.book.bookClassifyOne}}</view>
-    <view wx:if="{{borrow.borrowStatus != -1}}">借阅时间：{{startTime}}</view>
-    <view wx:if="{{borrow.borrowStatus != -1}}">应还时间：{{endTime}}</view>
+    <view wx:if="{{borrow.borrowStatus != -1}}">借阅时间：{{borrow.borrowStartTime}}</view>
+    <view wx:if="{{borrow.borrowStatus != -1}}">应还时间：{{borrow.borrowShouldTime}}</view>
     <view class="item">
         剩余时间：
         <view class="txt-time">{{txtTime.day}}天</view>

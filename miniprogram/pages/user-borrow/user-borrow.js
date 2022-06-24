@@ -31,6 +31,10 @@ Page({
             data: {},
             method: 'GET',
             success:function(res){
+                for(var i=0;i<res.data.length;++i){
+                    res.data[i].borrowStartTime=that.data.startTime;
+                    res.data[i].borrowShouldTime=that.data.endTime;
+                }
                 that.setData({
                     show: false,
                     animated: false,
