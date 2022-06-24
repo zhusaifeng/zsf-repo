@@ -127,6 +127,7 @@ Page({
             data: {},
             method: 'GET',
             success: function (res) {
+                console.log(res);
             wx.requestSubscribeMessage({
                         tmplIds:[
                             'nPpuJ6mN1fLHx7a1lKefrBrHJ15xosOdeNV706RxKWU'
@@ -169,8 +170,7 @@ Page({
         })
     },
 
-    subsribe:function(res){
-        debugger
+    subsribe:function(res){ 
         wx.requestSubscribeMessage({
             tmplIds:['jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'],
             success(res){
@@ -216,17 +216,14 @@ Page({
         if (MS < 100) MS = '0' + MS;
         var time = '';
         if (isBorrowTime) {
-        time = `${year}-${month}-${date}`;
+        time = `${year}-${month}-${date} ${hour}:${minu}:${sec}`;
         } else {
         var mydate2 = new Date();
         mydate2.setDate(mydate2.getDate() + 7);
-        time = `${mydate2.getFullYear()}-${
-            mydate2.getMonth() + 1
-        }-${mydate2.getDate()}`;
+        time = `${mydate2.getFullYear()}-${mydate2.getMonth() + 1}-${mydate2.getDate()} ${mydate2.getHours()}:${mydate2.getMinutes()}:${mydate2.getSeconds()}`;
         }
         return time;
     },
-
     acceptBorrow:function(borrowId){
         var that=this;
         wx.request({
@@ -243,6 +240,13 @@ Page({
                 var borrowUserName = that.data.borrowMsg.user.user_true_name;
                 var borrowStartTime = that.writeCurrentDate(true);
                 var borrowEndTime = that.writeCurrentDate(false);
+                var app=getApp();
+                app.globalData.startTime=borrowStartTime;
+                app.globalData.endTime=borrowEndTime;
+                console.log(app.globalData.startTime);
+                console.log(app.globalData.endTime); 
+                var app=getApp().globalData.endTime=borrowEndTime;
+                console.log
                 //请求批准借阅接口
                 wx.request({
                     url: getApp().globalData.url + 'api-scan-allow-borrow/' + borrowId,
@@ -255,7 +259,7 @@ Page({
                     });
                     console.log('借书成功');
                     wx.redirectTo({
-                        url: '/pages/user-borrow/user-borrow',
+                        url: '/pages/user-borrow/user-borrow?borrowStartTime='+borrowStartTime,
                     });
                     
                     },

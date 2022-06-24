@@ -22,5 +22,7 @@ App({
     user: "",
     admin: "",
     openid: '',
+    startTime:"",
+    endTime:""
   }
 });
