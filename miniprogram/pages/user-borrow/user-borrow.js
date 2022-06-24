@@ -52,20 +52,23 @@ Page({
         var time = 0;
         var obj = {};
         var endTime = new Date(that.data.endTime).getTime();//结束时间时间戳
-        var startTime = new Date().getTime();//当前时间时间戳
-        time = (endTime - startTime) / 1000;
+        var currentTime = new Date().getTime();//当前时间时间戳
+        time = (endTime - currentTime) / 1000;
         // 如果活动未结束
         if (time > 0) {
-          var hou = parseInt(time / (60 * 60));
-          var min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
-          var sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+            var day = parseInt(time / (24 * 60 * 60 ));
+            var hou = parseInt(time % (24 * 60 * 60)/(60 * 60));
+            var min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+            var sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
         obj = {
+            day:that.timeFormat(day),
             hou: that.timeFormat(hou),
             min: that.timeFormat(min),
             sec: that.timeFormat(sec)
         }
         } else { //活动已结束
         obj = {
+            day:"00",
             hou: "00",
             min: "00",
             sec: "00"
@@ -91,7 +94,6 @@ Page({
         wx.requestSubscribeMessage({
         tmplIds: ['XL4TdPW3FyZeaLGikS_L2ujiTnIpXipEcSDie9OU2WY'],
         success(res) {
-            console.log(res);
             if (res.XL4TdPW3FyZeaLGikS_L2ujiTnIpXipEcSDie9OU2WY == 'accept') {
             wx.request({
                 url:
@@ -126,19 +128,12 @@ Page({
         data: {},
         method: 'GET',
         success: function (res) {
-            console.log(res);
             that.setData({ borrowMsg: res.data });
-            console.log(res.data);
             var borrowBookName = res.data.book.bookName.substring(0,10);
             var borrowUserName = res.data.user.user_true_name;
             var borrowStartTime = that.writeCurrentDate(true);
             var borrowEndTime = that.writeCurrentDate(false);
             console.log(borrowBookName+"=====================borrowBookName");
-            //判断二维码是否过期
-            // var qrborrowStartTime = that.data.borrowMsg.borrowStartTime;
-            // console.log('borrowStartTime: ' + qrborrowStartTime);
-            // console.log('timestamp:' + timestamp);
-            // console.log(timestamp - qrborrowStartTime);
             //请求批准归还接口
             wx.request({
             url: getApp().globalData.url + 'api-scan-allow-return/' + borrowId,
@@ -179,7 +174,6 @@ Page({
                     },
                     fail: (err) => {
                         console.error('[云函数]调用失败', err);
-                        console.log(borrowBookName+"======borrowBookName")
                     },
                 })
                 

@@ -127,7 +127,6 @@ Page({
             data: {},
             method: 'GET',
             success: function (res) {
-                console.log(res);
             wx.requestSubscribeMessage({
                         tmplIds:[
                             'nPpuJ6mN1fLHx7a1lKefrBrHJ15xosOdeNV706RxKWU'
@@ -174,7 +173,6 @@ Page({
         wx.requestSubscribeMessage({
             tmplIds:['jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY'],
             success(res){
-                console.log("订阅成功");
                 if(res.jvFdutiH3lbhEasg1BfUQ_WIqamSVZbSCAwO8BJDoQY=='accept'){
                     wx.cloud.callFunction({
                         name:'templateMessage',
@@ -243,10 +241,7 @@ Page({
                 var app=getApp();
                 app.globalData.startTime=borrowStartTime;
                 app.globalData.endTime=borrowEndTime;
-                console.log(app.globalData.startTime);
-                console.log(app.globalData.endTime); 
                 var app=getApp().globalData.endTime=borrowEndTime;
-                console.log
                 //请求批准借阅接口
                 wx.request({
                     url: getApp().globalData.url + 'api-scan-allow-borrow/' + borrowId,
@@ -259,7 +254,7 @@ Page({
                     });
                     console.log('借书成功');
                     wx.redirectTo({
-                        url: '/pages/user-borrow/user-borrow?borrowStartTime='+borrowStartTime,
+                        url: '/pages/user-borrow/user-borrow',
                     });
                     
                     },

@@ -20,23 +20,13 @@ Page({
         data: {},
         method: 'GET',
         success: function(res){
-            // console.log(res);
-            // debugger
-            // for(var i=0;i<30;i++){
-            //     if(res.data[i].bookImageBig==""){
-            //         res.data[i].bookImageBig=null;
-            //     }
-            // }
             that.setData({books: res.data});
-            // console.log(res.data)
-            // debugger
         }
         })
         wx.hideNavigationBarLoading();
     },
 
     bookDetailBtn:function(e){
-        // console.log(e);
         var bookId=e.currentTarget.id;
         wx.navigateTo({
             url: '/pages/book-detail/book-detail?scanCode=0&bookId=' + bookId,

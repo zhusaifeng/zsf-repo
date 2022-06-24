@@ -15,7 +15,6 @@ Page({
         method: 'GET',
         success: function (res) {
         if (res.data.userId != null) {
-            debugger
             // console.log(res.data);
             //登录成功
             //微信端登录

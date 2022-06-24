@@ -8,9 +8,10 @@
     <view>所属类别：{{borrow.book.bookClassifyOne}}</view>
     <view wx:if="{{borrow.borrowStatus != -1}}">借阅时间：{{startTime}}</view>
     <view wx:if="{{borrow.borrowStatus != -1}}">应还时间：{{endTime}}</view>
-        
     <view class="item">
-        借阅剩余时间：
+        剩余时间：
+        <view class="txt-time">{{txtTime.day}}天</view>
+        :
         <view class="txt-time">{{txtTime.hou}}小时</view>
         :
         <view class="txt-time">{{txtTime.min}}分钟</view>

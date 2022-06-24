@@ -10,7 +10,6 @@ Page({
   },
 
 getMyInfo: function(e){
-console.log(e.detail.userInfo)
 // 一组动画完成
 this.animated.rotate(360).step()
     this.setData({
@@ -30,7 +29,6 @@ this.onGetOpenid();
 
 
 getMyInfo2: function(e){
-  console.log(e.detail.userInfo)
   getApp().globalData.userInfo = e.detail.userInfo;
   this.animated.rotate(360).step()
     this.setData({

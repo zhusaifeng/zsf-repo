@@ -86,7 +86,6 @@ Page({
     },
 
     bookDetailBtn2: function (e) {
-        console.log(e,"=====e");
         var bookId = e.currentTarget.id;
         wx.navigateTo({
             url: '/pages/book-detail/book-detail?scanCode=0&bookId=' + bookId

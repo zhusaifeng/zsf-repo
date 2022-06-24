@@ -15,8 +15,6 @@ Page({
      */
     onLoad: function (options) {
         var that=this;
-        console.log("还书时查看borrowId")
-        console.log(options)
         that.setData({borrowId: options.borrowId});
     },
 

@@ -13,7 +13,6 @@ Page({
      */
     onLoad: function(options) {
         var search = options.search;
-        console.log(search);
         var that = this;
         wx.request({
         url: getApp().globalData.url + 'api-book-book-bynamelike/' + search,
