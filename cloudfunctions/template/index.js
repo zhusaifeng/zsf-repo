@@ -1,6 +1,8 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
+//是用于标志当前所在环境
+//cloud.init: 设置 API 默认环境等于当前所在环境
 cloud.init({
     env: cloud.DYNAMIC_CURRENT_ENV
 })

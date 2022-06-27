@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        imgsrc:'',
+        haveImg:false
     },
 
     userBorrowBtn: function() {
@@ -40,12 +41,45 @@ wx.request({
 });
 },
 
+changephoto:function(){
+    wx.chooseImage({
+        count: 1,
+        success: (result)=>{
+            console.log(result);
+            wx.cloud.uploadFile({
+                cloudPath:'my-photo.png',
+                filePath:result.tempFilePaths[0],
+                success:res=>{
+                    console.log(res.fileID);
+                    this.setData({
+                        imgsrc:res.fileID,
+                        haveImg:true
+                    })
+                    this.onLoad();
+                },
+                fail:err=>{
+                    console.log(errMsg);
+                }
+            })
+        },
+        fail:err=>{
+            console.log(err);
+        }
+    });
+
+},
+
 
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+            imgsrc:this.data.imgsrc,
+            haveImg:this.data.haveImg
+        })
+
     },
 
 

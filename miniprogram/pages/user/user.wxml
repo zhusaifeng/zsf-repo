@@ -1,10 +1,10 @@
 <!--pages/user/user.wxml-->
 
 <view class="main-container">
-    
     <view class="user-container">
-        <view class="logo">
-        <open-data type="userAvatarUrl" open-gid=""></open-data>
+        <view bindtap="changephoto">
+            <open-data class="logo" type="userAvatarUrl" open-gid="" wx:if="{{!haveImg}}"></open-data>
+            <image class="logo" src="{{imgsrc}}" wx:if="{{haveImg}}"/>
         </view>
         <view class="username">
         <open-data class="" type="userNickName" open-gid=""></open-data>
